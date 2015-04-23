@@ -58,11 +58,16 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Advisor.Database.publish.xml" />
+    <None Include="Scripts\CreateCategories.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Users.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\PostDeploy.sql" />
   </ItemGroup>
 </Project>
