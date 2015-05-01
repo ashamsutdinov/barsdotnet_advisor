@@ -13,6 +13,10 @@ namespace Advisor.Dal.Mapping
             Id(u => u.Id, m => m.Generator(Generators.Identity));
             Property(u => u.Login);
             Property(u => u.PasswordHash);
+            Property(u => u.Name);
+            Property(u => u.Sirname);
+            Property(u => u.Email);
+            Property(u => u.Info);
         }
     }
 
