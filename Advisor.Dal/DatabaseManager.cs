@@ -22,7 +22,6 @@ namespace Advisor.Dal
             nhConfig.AddMapping(domainMapping);
             SessionFactory = nhConfig.BuildSessionFactory();
         }
-
         public static ISessionFactory SessionFactory { get; private set; }
     }
 }

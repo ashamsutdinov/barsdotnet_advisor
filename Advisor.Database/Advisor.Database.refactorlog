@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="42a32bcf-0686-4706-87aa-98b844973706" ChangeDateTime="05/02/2015 09:32:07">
+    <Property Name="ElementName" Value="[dbo].[Products].[Value]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Products]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MinValue" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="559fec61-28f8-4dbf-862f-918efeefac1f" ChangeDateTime="05/02/2015 10:09:03">
+    <Property Name="ElementName" Value="[dbo].[Comments].[DateTime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Comments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DateOfCreate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="76d825c8-581f-420d-b5b9-e6cd76f377a5" ChangeDateTime="05/02/2015 11:57:23">
+    <Property Name="ElementName" Value="[dbo].[Ratings].[Rating]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ratings]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Value" />
+  </Operation>
+</Operations>
