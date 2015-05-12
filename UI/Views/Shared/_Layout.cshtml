@@ -10,6 +10,33 @@
     @Scripts.Render("~/js/modernizr")
 </head>
 <body>
+    
+
+    <table cellpadding="25" border="0" bordercolor="#003366">
+        <tr><td colspan="3" bgcolor="#FFFFFF"><h1 align="left" title=""> <!--font face=""-->&nbsp;<!--/font--> Сайт рекомендаций <br /> </h1></td></tr>
+        <tr>
+            <td colspan="3" bgcolor="ddffgg">
+                <h2 align="left" title="">
+                    <font face="Courier New, Courier, monospace">&nbsp;</font>
+                    <a href="galery.html">Галерея</a>  |  <a href="flower_shop_basket.phtml">Мой кабинет</a> |    <a href="flower_shop_reg.phtml">Регистрация</a>
+            <td bgcolor="ddffgg">
+                <form action="flower_shop_auto.phtml" method="post">
+                    <table>
+                        <tr>
+                            <td align="right"><font size=5>Логин:</font></td>
+                            <td align="left"><input type=text style="width:60; height:20;" name=login></td>
+                        </tr>
+                        <tr>
+                            <td align="right"><font size=5>Пароль:</font></td>
+                            <td align="left"><input type=text style="width:60; height:20;" name=pass></td>
+                        </tr>
+                        <input type=submit value=ok style="height:40;">
+            </td>
+        </tr>
+    </table> </form>
+
+    </td> </h2> </td></tr>
+
     @RenderBody()
     @Scripts.Render("~/js/extjs")
     @RenderSection("scripts", required: false)
