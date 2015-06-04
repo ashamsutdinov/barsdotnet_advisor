@@ -1,0 +1,16 @@
+﻿@model UI.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@{/*тут нужно написать формочку для ввода данных при заходе на сайт*/}
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+    <p>Введите логин: </p>
+    @Html.TextBox("Login")
+    <p>Введите пароль :</p>
+    @Html.Password("Password")
+    <p><input type="submit" value="Отправить" /></p>
+}
+

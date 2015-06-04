@@ -1,0 +1,27 @@
+﻿@model UI.Models.UserModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Register", "UserData", FormMethod.Post))
+{
+    <p>Введите логин: </p>
+    @Html.TextBox("Login")
+    <p>Введите пароль :</p>
+    @Html.Password("Password")
+    <p>Повторите пароль :</p>
+    @Html.Password("PasswordClone")
+    
+    <p>Введите адрес электронной почты: </p>
+    @Html.TextBox("Email")
+    
+    <p>Введите имя: </p>
+    @Html.TextBox("Name")
+    <p>Введите фамилию: </p>
+    @Html.TextBox("Sirname")
+
+    <p>Введите информацию о себе: </p>
+    @Html.TextArea("Info")
+    <p><input type="submit" value="Отправить" /></p>
+}

@@ -134,10 +134,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3153,7 +3158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\UserDate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -3183,6 +3188,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Galery.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserData\Register.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

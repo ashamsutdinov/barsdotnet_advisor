@@ -6,14 +6,17 @@ using Advisor.Dal;
 
 namespace UI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
         public ActionResult Index()
-        {         
+        {
+            //return Redirect("/User/Login");
+
             UserManager u = new UserManager();
-            User us = u.GetById(1);
-            ViewBag.Sirname = us.Sirname;
+            u.Register("a", "a", "a", "a", "", "");
+            
             return View();
+
         }
     }
 }
