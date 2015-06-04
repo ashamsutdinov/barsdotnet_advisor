@@ -14,6 +14,11 @@ namespace UI.Controllers
         private readonly IUserManager _userManager
             = Services.Factory.Get<IUserManager>();
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult Register()
         {
             return View();
@@ -22,10 +27,15 @@ namespace UI.Controllers
         [HttpPost]
         public ActionResult Register(UserModel model)
         {
-            _userManager.Register(model.Login, model.Password,model.Name,model.Sirname,model.Email,model.Info);
-
-            return Content("Вы зарегистрированы");
-            //return Redirect("/mainpage");//!!!!
+            if (model.Password == model.PasswordClone)
+            {
+                _userManager.Register(model.Login, model.Password, model.Name, model.Sirname, model.Email, model.Info);
+                //return Content("Вы зарегистрированы");
+                return Redirect("/UserData/Index");
+            }
+            //тут прописывается ошибка
+            ModelState.AddModelError("Password", "Введенные пароли не совпадают");
+            return View();
         }
 
         public ActionResult Edit()
@@ -40,12 +50,10 @@ namespace UI.Controllers
         [HttpPost]
         public ActionResult Edit(UserModel model)
         {
-
-
             _userManager.ChangeData(model.Id, model.Name, model.Sirname, model.Email, model.Info);
             
-            return Content("Данные изменены");
-            //return Redirect("/mainpage");//!!!
+            //return Content("Данные изменены");
+            return Redirect("/UserData/Index");
         }
     }
 }

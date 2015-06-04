@@ -16,10 +16,10 @@ namespace UI.Controllers
 
         public ActionResult Login()
         {
-            /*if (CurrentUser == null)
+            if (CurrentUser == null)
             {
                 FormsAuthentication.SignOut();
-            }*/
+            }
             return View();
         }
 
@@ -30,6 +30,7 @@ namespace UI.Controllers
             if (user == null)
             {
                 ModelState.AddModelError("Login", "Неверный пароль или логин");
+                
                 return View();
             }
             FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);

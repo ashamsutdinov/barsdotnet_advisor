@@ -10,13 +10,9 @@ namespace UI.Controllers
     {
         public ActionResult Index()
         {
-            //return Redirect("/User/Login");
-
             UserManager u = new UserManager();
             u.Register("a", "a", "a", "a", "", "");
-            
             return View();
-
         }
     }
 }

@@ -3187,13 +3187,16 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Galery.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\UserData\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserData\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserData\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
