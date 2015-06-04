@@ -18,7 +18,7 @@
             <td colspan="3" bgcolor="ddffgg">
                 <h4 align="left" title="">
                     <font face="Courier New, Courier, monospace", size=10>&nbsp;</font>
-                    <a href="Poisk.html">Поиск</a>  |  <a href="Mypage.phtml">Мой кабинет</a> |    <a href="/UserData/Register">Регистрация</a> 
+                    <a href="Poisk.html">Поиск</a>  |  @if (ViewBag.IsAuthorized){ <a href="Mypage.phtml">Мой кабинет</a> }else { <a href="/UserData/Register">Регистрация</a>}
             <td bgcolor="ddffgg">
 
                 @*<form action="Autorization.phtml" method="post">
@@ -38,10 +38,8 @@
                    </table>
                </form>*@
                 @if (ViewBag.IsAuthorized)
-                {<table>
-                    <tr>
-                    <a href="/User/LogOff">Выйти</a></tr>
-                 </table>
+                {
+                    <a href="/User/LogOff">Выйти</a>
                 }
                 else
                 {
