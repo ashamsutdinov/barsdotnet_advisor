@@ -3187,7 +3187,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Galery.cshtml" />
+    <Content Include="Views\Home\Poisk.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\User\Login.cshtml" />
