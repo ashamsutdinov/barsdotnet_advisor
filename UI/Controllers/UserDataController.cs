@@ -21,7 +21,11 @@ namespace UI.Controllers
 
         public ActionResult Register()
         {
-            return View();
+            if (CurrentUser == null)
+            {
+                return View();
+            }
+            return Redirect("/");
         }
 
         [HttpPost]
@@ -50,6 +54,8 @@ namespace UI.Controllers
         [HttpPost]
         public ActionResult Edit(UserModel model)
         {
+            //все не так просто
+
             _userManager.ChangeData(model.Id, model.Name, model.Sirname, model.Email, model.Info);
             
             //return Content("Данные изменены");
