@@ -147,6 +147,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\fallout.png" />
+    <Content Include="Content\Images\blocnot.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\extjs\ext-all-debug-w-comments.js" />
