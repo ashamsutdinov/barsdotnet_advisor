@@ -13,37 +13,39 @@
     
 @* *@
     <table border="0" cellpadding="25" width="100%" bordercolor="#003366">
-        <tr><td colspan="3" bgcolor="#FFFFFF"><h2 align="center" title=""> <!--font face=""-->&nbsp;<!--/font--> Сайт рекомендаций <br /> </h2></td></tr>
+        <tr><td colspan="3" bgcolor="#FFFFFF"><h1 align="left" title=" Adviser "><font face=" fantasy " color="green" size="+3"><em>&nbsp;Adviser</em></font> </h1><h4>    cайт рекомендаций </h4></td></tr>
         <tr>
             <td colspan="3" bgcolor="ddffgg">
                 <h4 align="left" title="">
-                    <font face="Courier New, Courier, monospace", size=10>&nbsp;</font>
-                    <a href="Poisk.html">Поиск</a>  |  @if (ViewBag.IsAuthorized){ <a href="Mypage.phtml">Мой кабинет</a> }else { <a href="/UserData/Register">Регистрация</a>}
+                    <font face="Courier New, Courier, monospace" , size=2>&nbsp;</font>
+                    <a href="Poisk.html">Поиск</a>  |  @if (ViewBag.IsAuthorized)
+                    { <a href="Mypage.phtml">Мой кабинет</a> }
+                    else
+                    { <a href="/UserData/Register">Регистрация</a>}
             <td bgcolor="ddffgg">
-
                 @*<form action="Autorization.phtml" method="post">
-                    <table>
-                        <tr>
-                            <td align="right"><font size=6>Логин:</font></td>
-                            <td align="left"><input type=text style="width:60; height:20;" name=login></td>
-                        </tr>
-                        <tr>
-                            <td align="right"><font size=6>Пароль:</font></td>
-                            <td align="left"><input type=text style="width:60; height:20;" name=pass></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td align="right"><input type=submit value=Войти style="width:auto; height:auto;"></td> 
-                        </tr>
-                   </table>
-               </form>*@
+                         <table>
+                             <tr>
+                                 <td align="right"><font size=6>Логин:</font></td>
+                                 <td align="left"><input type=text style="width:60; height:20;" name=login></td>
+                             </tr>
+                             <tr>
+                                 <td align="right"><font size=6>Пароль:</font></td>
+                                 <td align="left"><input type=text style="width:60; height:20;" name=pass></td>
+                             </tr>
+                             <tr>
+                                 <td></td>
+                                 <td align="right"><input type=submit value=Войти style="width:auto; height:auto;"></td>
+                             </tr>
+                        </table>
+                    </form>*@
                 @if (ViewBag.IsAuthorized)
                 {
                     <a href="/User/LogOff">Выйти</a>
                 }
                 else
                 {
-                <a href="/User/Login">Войти</a>
+                    <a href="/User/Login">Войти</a>
                 }
             </td>
         </tr>
