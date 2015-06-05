@@ -15,5 +15,8 @@ namespace Advisor.Dal.Domain
         //!!!!!
 
         public virtual int ProductId { get; set; }
+
+        //---
+        public virtual Product Product { get; set; }
     }
 }

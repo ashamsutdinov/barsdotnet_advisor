@@ -13,6 +13,9 @@ namespace Advisor.Dal.Mapping
             Id(u => u.Id, m => m.Generator(Generators.Identity));
             Property(u => u.Name);
             Property(u => u.Info);
+
+            //---
+            Bag(x => x.Products, map => map.Key(km => km.Column("CategoryId")), rel => rel.OneToMany());
         }
     }
 }

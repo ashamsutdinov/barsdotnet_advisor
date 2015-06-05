@@ -13,6 +13,9 @@ namespace Advisor.Dal.Mapping
             Id(u => u.Id, m => m.Generator(Generators.Identity));
             Property(u => u.Photo);
             Property(u => u.ProductId);
+
+            //--
+            ManyToOne(x => x.Product, map => map.Column("ProductId"));
         }
     }
 }
