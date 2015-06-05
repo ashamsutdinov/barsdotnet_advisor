@@ -10,8 +10,8 @@ namespace UI.Controllers
     {
         public ActionResult Index()
         {
-            UserManager u = new UserManager();
-            u.Register("a", "a", "a", "a", "", "");
+            /*UserManager u = new UserManager();
+            u.Register("a", "a", "a", "a", "", "");*/
             return View();
         }
     }

@@ -4,7 +4,7 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace Advisor.Dal.Mapping
 {
-    class ProductPhotoMapping:
+    public class ProductPhotoMapping:
         ClassMapping<ProductPhoto>
     {
         public ProductPhotoMapping()

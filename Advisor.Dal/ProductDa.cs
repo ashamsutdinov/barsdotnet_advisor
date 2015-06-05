@@ -2,7 +2,7 @@
 
 namespace Advisor.Dal
 {
-    class ProductDa:
+    public class ProductDa:
         Dao<int,Product>
     {
 

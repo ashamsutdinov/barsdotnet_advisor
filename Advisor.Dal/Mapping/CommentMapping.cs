@@ -4,7 +4,7 @@ using Advisor.Dal.Domain;
 
 namespace Advisor.Dal.Mapping
 {
-    class CommentMapping:
+    public class CommentMapping:
         ClassMapping<Comment>
     {
         public CommentMapping()

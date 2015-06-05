@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Advisor.Dal.Domain
 {
-    class ProductPhoto
+    public class ProductPhoto
     {
         public virtual int Id { get; set; }
 
