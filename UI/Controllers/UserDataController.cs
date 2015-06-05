@@ -31,14 +31,23 @@ namespace UI.Controllers
         [HttpPost]
         public ActionResult Register(UserModel model)
         {
-            if (model.Password == model.PasswordClone)
+            if (ModelState.IsValid)
             {
-                _userManager.Register(model.Login, model.Password, model.Name, model.Sirname, model.Email, model.Info);
-                //return Content("Вы зарегистрированы");
-                return Redirect("/UserData/Index");
+                //if (model.Password == model.PasswordClone)
+                {
+                    var user = _userManager.Register(model.Login, model.Password, model.Name, model.Sirname, model.Email, model.Info);
+                    //return Content("Вы зарегистрированы");
+                    if (user == null)
+                    {
+                        ModelState.AddModelError("Login", "Введенный логин не уникален");
+                        return View();
+                    }
+                    return Redirect("/UserData/Index");
+                }
+                //тут прописывается ошибка
+                //ModelState.AddModelError("Password", "Введенные пароли не совпадают");
+                //return View();
             }
-            //тут прописывается ошибка
-            ModelState.AddModelError("Password", "Введенные пароли не совпадают");
             return View();
         }
 

@@ -26,15 +26,18 @@ namespace UI.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-            var user = _userManager.Verify(model.Login, model.Password);
-            if (user == null)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("Login", "Неверный пароль или логин");
-                
-                return View();
+                var user = _userManager.Verify(model.Login, model.Password);
+                if (user == null)
+                {
+                    ModelState.AddModelError("", "Неверный пароль или логин");
+                    return View();
+                }
+                FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
+                return Redirect("/");
             }
-            FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
-            return Redirect("/");
+            return View();
         }
 
         public ActionResult LogOff()
