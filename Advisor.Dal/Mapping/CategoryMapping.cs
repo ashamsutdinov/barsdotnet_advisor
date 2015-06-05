@@ -4,7 +4,7 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace Advisor.Dal.Mapping
 {
-    class CategoryMapping:
+    public class CategoryMapping:
          ClassMapping<Category>
     {
         public CategoryMapping()

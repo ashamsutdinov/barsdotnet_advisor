@@ -2,7 +2,7 @@
 
 namespace Advisor.Dal
 {
-    class CommentDa:
+    public class CommentDa:
         Dao<int,Comment>
     {
     }

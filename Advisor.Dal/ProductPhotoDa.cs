@@ -2,7 +2,7 @@
 
 namespace Advisor.Dal
 {
-    class ProductPhotoDa:
+    public class ProductPhotoDa:
         Dao<int,ProductPhoto>
     {
     }

@@ -4,7 +4,7 @@ using Advisor.Dal.Domain;
 
 namespace Advisor.Dal.Mapping
 {
-    class RatingMapping:
+    public class RatingMapping:
         ClassMapping<Rating>
     {
         public RatingMapping()

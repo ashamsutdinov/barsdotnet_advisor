@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Advisor.Dal.Domain
 {
-    class Comment
+    public class Comment
     {
         public virtual int Id { get; set; }
 
