@@ -18,6 +18,14 @@ namespace Advisor.Dal.Mapping
             Property(u => u.DateOfCreate);
             Property(u => u.Info);
             Property(u => u.CategoryId);
+
+            //---
+            Bag(x => x.Comments, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
+            Bag(x => x.Ratings, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
+            Bag(x => x.ProductPhotos, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
+            
+            ManyToOne(x => x.Category, map => map.Column("CategoryId"));
+            ManyToOne(x => x.User, map => map.Column("UserId"));
         }
     }
 }

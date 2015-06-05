@@ -19,7 +19,10 @@ namespace Advisor.Dal.Mapping
             Property(u => u.Info);
 
             //связь
-            Bag(x => x.Comments, map => map.Key(km => km.Column("UserId")));
+            Bag(x => x.Comments, map => map.Key(km => km.Column("UserId")),rel=>rel.OneToMany());
+            //!!!
+            Bag(x => x.Products, map => map.Key(km => km.Column("UserId")), rel => rel.OneToMany());
+            Bag(x => x.Ratings, map => map.Key(km => km.Column("UserId")), rel => rel.OneToMany());
         }
     }
 

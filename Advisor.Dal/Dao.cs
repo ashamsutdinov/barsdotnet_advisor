@@ -8,7 +8,7 @@ namespace Advisor.Dal
     public class Dao<TKey, TDomainEntity> :
         IDisposable
     {
-        private readonly ISession _dbSession;
+        protected readonly ISession _dbSession;
 
         private readonly ITransaction _dbTransaction;
 
