@@ -11,7 +11,7 @@ namespace Advisor.Dal.Domain
         public virtual int Id { get; set; }
 
         //какой тип данных?
-        public virtual Object Photo { get; set; }
+        public virtual byte[] Photo { get; set; }
         //!!!!!
 
         public virtual int ProductId { get; set; }

@@ -15,6 +15,9 @@ namespace Advisor.Dal.Mapping
             Property(u => u.UserId);
             Property(u => u.ProductId);
             Property(u => u.Text);
+
+            //----
+            ManyToOne(x => x.User, map => map.Column("UserId"));
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Advisor.Dal.Domain
+﻿using System.Collections.Generic;
+
+namespace Advisor.Dal.Domain
 {
     public class User
     {
@@ -15,5 +17,8 @@
         public virtual string Email { get; set; }
 
         public virtual string Info { get; set; }
+        
+        //------
+        public virtual IEnumerable<Comment> Comments { get; set; }
     }
 }

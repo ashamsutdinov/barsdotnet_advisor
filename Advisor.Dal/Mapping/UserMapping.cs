@@ -17,6 +17,9 @@ namespace Advisor.Dal.Mapping
             Property(u => u.Sirname);
             Property(u => u.Email);
             Property(u => u.Info);
+
+            //связь
+            Bag(x => x.Comments, map => map.Key(km => km.Column("UserId")));
         }
     }
 

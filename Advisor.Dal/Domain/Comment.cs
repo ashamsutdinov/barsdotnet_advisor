@@ -17,5 +17,8 @@ namespace Advisor.Dal.Domain
         public virtual int ProductId { get; set; }
 
         public virtual string Text { get; set; }
+
+        //-----
+        public User User { get; set; }
     }
 }
