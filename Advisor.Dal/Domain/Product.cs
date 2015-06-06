@@ -30,5 +30,10 @@ namespace Advisor.Dal.Domain
         public virtual User User { get; set; }
         public virtual IList<Rating> Ratings { get; set; }
         public virtual IList<ProductPhoto> ProductPhotos { get; set; }
+
+
+
+        
+
     }
 }

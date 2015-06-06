@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryManager.cs" />
+    <Compile Include="ICategoryManager.cs" />
     <Compile Include="IProductManager.cs" />
     <Compile Include="IUserManager.cs" />
     <Compile Include="ProductManager.cs" />

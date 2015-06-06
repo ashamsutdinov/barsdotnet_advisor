@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Advisor.Data;
 using UI.Models;
 using System.Web.Security;
+using Advisor.Dal.Domain;
 
 
 namespace UI.Controllers
@@ -21,18 +22,40 @@ namespace UI.Controllers
             return View();
         }
 
+        //!!!!!
         //изменение продукта
-        public ActionResult Edit()
+        [HttpGet]
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id==null)
+            {
+                return HttpNotFound();
+            }
+            var product = _productManager.Get((int)id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            ProductModel model = ProductModel.FromDomainProduct(product);
+            return View(model);
         }
+
 
         [HttpPost]
         public ActionResult Edit(ProductModel model)
         {
-            //пусть пока сюда
-            return Redirect("/");
+            if (ModelState.IsValid)
+            {
+                return Redirect("/");
+                //пусть пока сюда
+            }
+            return View();
         }
+
+
+
+
+        
 
 
         //на этот метод приходят user, когда вбивает в командной строке
@@ -53,7 +76,6 @@ namespace UI.Controllers
             {
                 _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category, "");
                 //фотка нужна
-                //return Content("Ваш товар добавлен");
                 return Redirect("/");
             }
             return View();

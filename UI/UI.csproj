@@ -3211,7 +3211,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductData\Add.cshtml" />
-    <Content Include="Views\ProductData\Change.cshtml" />
+    <Content Include="Views\ProductData\Edit.cshtml" />
     <Content Include="Views\ProductData\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>

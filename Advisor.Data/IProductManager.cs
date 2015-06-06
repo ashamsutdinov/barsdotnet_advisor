@@ -14,5 +14,6 @@ namespace Advisor.Data
         IQueryable<Product> GetMostPop();
         //добавить товар
         Product Add(int userId, string name, string info, int minval, int maxval, string category,string photo);
+        Product Get(int id);
     }
 }
