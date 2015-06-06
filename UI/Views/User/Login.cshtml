@@ -7,12 +7,29 @@
 @{/*тут нужно написать формочку для ввода данных при заходе на сайт*/}
 @using (Html.BeginForm("Login", "User", FormMethod.Post))
 {
-<br><br><center>
-        <p>Введите логин: </p>
-        @Html.TextBox("Login")
-        <p>Введите пароль :</p>
-        @Html.Password("Password")
-        <p><input type="submit" value="Отправить" /></p>
-     </center>
-         }
+    <br>@Html.ValidationSummary(true)
+    <br>
+    <<table border ="0" width="100%" align="center">
+        <tr>
+            <td align="right" width="50%"><b>Введите логин: </b></td>
+        </tr>
+        <tr>
+            <td align="right" width="50%">
+                @Html.TextBox("Login")
+            </td>
+            <td>@Html.ValidationMessage("Login")</td>
+        </tr>
+        <tr>
+            <td align="right" width="50%"><b>Введите пароль: </b></td>
+        </tr>
+        <tr>
+            <td align="right" width="50%">@Html.Password("Password")</td>
+            <td>@Html.ValidationMessage("Password")</td>
+        </tr>
+        <tr>
+            <td align="right" width="50%"><input type="submit" value="Отправить" /></td>
+        </tr>
+    </table>
+
+}
 
