@@ -8,9 +8,11 @@ namespace Advisor.Data
 {
     public interface IProductManager
     {
-        IQueryable<Product> GetProducts(int UserId);
         //найти товары пользователя
-        IQueryable<Product> GetMostPop();
+        IQueryable<Product> GetProducts(int UserId);
         //взять самые популярные товары
+        IQueryable<Product> GetMostPop();
+        //добавить товар
+        Product Add(int userId, string name, string info, int minval, int maxval, string category,string photo);
     }
 }

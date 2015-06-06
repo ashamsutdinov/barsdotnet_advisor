@@ -1,0 +1,29 @@
+﻿@model UI.Models.ProductModel
+
+@{
+    ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm("Add", "ProductData", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ // доделать поддержку фотографии
+    <br>
+   <h2><font color="green"><center> Добавление нового товара </center></font></h2>
+    <br><br>
+    <table border="0" width="100%" align="left">
+	<tr><td align="right" width="50%"><b>Введите название товара(услуги): </b></td>
+		<td>@Html.TextBox("Name")</td></tr>
+	<tr><td align="right" width="50%"><b>Введите информацию о товаре(услуге): </b></td>
+		<td>@Html.TextArea("Info")</td></tr>
+	<tr><td align="right" width="50%"><b>Введите минимальную цену: </b></td>
+		<td>@Html.TextBox("MinValue")</td></tr>
+	<tr><td align="right" width="50%"><b>Введите максимальную цену: </b></td>
+		<td>@Html.TextBox("MaxValue")</td></tr>
+	<tr><td align="right" width="50%"><b>Введите название категории </b></td>
+		<td>@Html.TextBox("Category")</td></tr>
+	<tr><td align="right" width="50%"><b>Фотография: </b></td>       
+		<td>@Html.TextArea("Info")</td></tr>
+	<input type=hidden value=1 name=type>
+	<tr><td align="right"></td><td>
+		<input type=submit value="Отправить"></tr>
+</table>
+}
