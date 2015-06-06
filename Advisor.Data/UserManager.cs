@@ -65,11 +65,11 @@ namespace Advisor.Data
             }
         }
         
-        public User ChangeLogin(string oldLogin, string newLogin)
+        public User ChangeLogin(int id, string newLogin)
         {
             using (var da = new UserDa())
             {
-                var user=this.Get(oldLogin);
+                var user=this.Get(id);
                 user.Login = newLogin;
                 return da.Save(user);
             } 

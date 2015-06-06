@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Register";
 }
-
 @using (Html.BeginForm("Register", "UserData", FormMethod.Post))
 {
  /*   <p>Введите логин: </p>
@@ -26,6 +25,7 @@
     
     <p><input type="submit" value="Отправить" /></p>
   */
+    @Html.ValidationSummary(true)
     <br>
     <table>
 <tr><td width="40%"></td><td>
@@ -35,30 +35,37 @@
         <tr>
             <td align="right" width="50%"><b>Введите логин: </b></td>
             <td>@Html.TextBox("Login")</td>
+            <td>@Html.ValidationMessage("Login")</td>
         </tr>
         <tr>
             <td align="right" width="50%"><b>Введите пароль: </b></td>
             <td>@Html.Password("Password")</td>
+            <td>@Html.ValidationMessage("Password")</td>
         </tr>
         <tr>
             <td align="right" width="50%"><b>Повтор пароля: </b></td>
             <td>@Html.Password("PasswordClone")</td>
+            <td>@Html.ValidationMessage("PasswordClone")</td>
         </tr>
         <tr>
             <td align="right" width="50%"><b>Введите фамилию: </b></td>
             <td>@Html.TextBox("Sirname")</td>
+            <td>@Html.ValidationMessage("Sirname")</td>
         </tr>
         <tr>
             <td align="right" width="50%"><b>Введите имя: </b></td>
             <td>@Html.TextBox("Name")</td>
+            <td>@Html.ValidationMessage("Name")</td>
         </tr>
         <tr>
             <td align="right" width="50%"><b>Введите адрес электронной почты: </b></td>
             <td>@Html.TextBox("Email")</td>
+            <td>@Html.ValidationMessage("Email")</td>
         </tr>
         <tr>
             <td align="right" width="50%"><b>Введите информацию о себе: </b></td>
             <td>@Html.TextArea("Info")</td>
+            <td>@Html.ValidationMessage("Info")</td>
         </tr>
         <input type=hidden value=1 name= type>
         <tr>

@@ -31,14 +31,18 @@ namespace UI.Controllers
         [HttpPost]
         public ActionResult Register(UserModel model)
         {
-            if (model.Password == model.PasswordClone)
+            if (ModelState.IsValid)
             {
-                _userManager.Register(model.Login, model.Password, model.Name, model.Sirname, model.Email, model.Info);
-                //return Content("Вы зарегистрированы");
+                //если такой уже есть, то вернет Null
+                var user = _userManager.Register(model.Login, model.Password, model.Name, model.Sirname, model.Email, model.Info);
+                if (user == null)
+                {
+                    ModelState.AddModelError("Login", "Введенный логин не уникален");
+                    return View();
+                }
                 return Redirect("/UserData/Index");
             }
-            //тут прописывается ошибка
-            ModelState.AddModelError("Password", "Введенные пароли не совпадают");
+
             return View();
         }
 
@@ -54,12 +58,20 @@ namespace UI.Controllers
         [HttpPost]
         public ActionResult Edit(UserModel model)
         {
-            //все не так просто
-
-            _userManager.ChangeData(model.Id, model.Name, model.Sirname, model.Email, model.Info);
-            
-            //return Content("Данные изменены");
-            return Redirect("/UserData/Index");
+            //!!!!изменеие чего это все???
+            if (ModelState.IsValid)
+            {
+                var user = _userManager.Get(model.Login);
+                if (user == null)
+                {
+                    _userManager.ChangeLogin(model.Id, model.Login);
+                    _userManager.ChangeData(model.Id, model.Name, model.Sirname, model.Email, model.Info);
+                    //????
+                    return Redirect("/UserData/Index");
+                }
+                return View();
+            }
+            return View();
         }
     }
 }

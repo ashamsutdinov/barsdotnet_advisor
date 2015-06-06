@@ -16,7 +16,7 @@ namespace Advisor.Data
 
         User ChangeData(int id, string newName, string newSirname, string newEmail, string newInfo);
         
-        User ChangeLogin(string oldLogin, string newLogin);
+        User ChangeLogin(int id, string newLogin);
         
         User ChangePassword(string login, string oldPassword, string newPassword);
     }
