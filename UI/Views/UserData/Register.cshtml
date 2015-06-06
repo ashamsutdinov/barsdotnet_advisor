@@ -27,25 +27,47 @@
     <p><input type="submit" value="Отправить" /></p>
   */
     <br>
-   <h2><font color="green"><center> Регистрация </center></font></h2>
+    <table>
+<tr><td width="40%"></td><td>
+    <h2><font color="green"><center> Регистрация </center></font></h2>
     <br><br>
     <table border="0" width="100%" align="left">
-	<tr><td align="right" width="50%"><b>Введите логин: </b></td>
-		<td>@Html.TextBox("Login")</td></tr>
-	<tr><td align="right" width="50%"><b>Введите пароль: </b></td>
-		<td>@Html.Password("Password")</td></tr>
-	<tr><td align="right" width="50%"><b>Повтор пароля: </b></td>
-		<td>@Html.Password("PasswordClone")</td></tr>
-	<tr><td align="right" width="50%"><b>Введите фамилию: </b></td>
-		<td>@Html.TextBox("Sirname")</td></tr>
-	<tr><td align="right" width="50%"><b>Введите имя: </b></td>
-		<td>@Html.TextBox("Name")</td></tr>
-	<tr><td align="right" width="50%"><b>Введите адрес электронной почты: </b></td>
-		<td>@Html.TextBox("Email")</td></tr>
-	<tr><td align="right" width="50%"><b>Введите информацию о себе: </b></td>
-		<td>@Html.TextArea("Info")</td></tr>
-	<input type=hidden value=1 name=type>
-	<tr><td align="right"></td><td>
-		<input type=submit value="Отправить"></tr>
-</table>
+        <tr>
+            <td align="right" width="50%"><b>Введите логин: </b></td>
+            <td>@Html.TextBox("Login")</td>
+        </tr>
+        <tr>
+            <td align="right" width="50%"><b>Введите пароль: </b></td>
+            <td>@Html.Password("Password")</td>
+        </tr>
+        <tr>
+            <td align="right" width="50%"><b>Повтор пароля: </b></td>
+            <td>@Html.Password("PasswordClone")</td>
+        </tr>
+        <tr>
+            <td align="right" width="50%"><b>Введите фамилию: </b></td>
+            <td>@Html.TextBox("Sirname")</td>
+        </tr>
+        <tr>
+            <td align="right" width="50%"><b>Введите имя: </b></td>
+            <td>@Html.TextBox("Name")</td>
+        </tr>
+        <tr>
+            <td align="right" width="50%"><b>Введите адрес электронной почты: </b></td>
+            <td>@Html.TextBox("Email")</td>
+        </tr>
+        <tr>
+            <td align="right" width="50%"><b>Введите информацию о себе: </b></td>
+            <td>@Html.TextArea("Info")</td>
+        </tr>
+        <input type=hidden value=1 name= type>
+        <tr>
+            <td align="right"></td>
+            <td>
+                <input type=submit value="Отправить">
+        </tr>
+    </table>
+</td>
+<td> <img src="/Content/Images/blocnot.jpg" width="150" height="150" align="right">
+    </td></tr></table>
 }
