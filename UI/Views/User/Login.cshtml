@@ -9,26 +9,28 @@
 {
     <br>@Html.ValidationSummary(true)
     <br>
-    <<table border ="0" width="100%" align="center">
+    <table border ="0" width="100%" align="center">
         <tr>
-            <td align="right" width="50%"><b>Введите логин: </b></td>
+            <td align="center" width="50%"><b>Введите логин: </b></td>
         </tr>
         <tr>
-            <td align="right" width="50%">
+            <td align="center" width="50%">
                 @Html.TextBox("Login")
             </td>
-            <td>@Html.ValidationMessage("Login")</td>
+            
         </tr>
         <tr>
-            <td align="right" width="50%"><b>Введите пароль: </b></td>
+            <td align="center" width="50%"><b>Введите пароль: </b></td>
         </tr>
         <tr>
-            <td align="right" width="50%">@Html.Password("Password")</td>
-            <td>@Html.ValidationMessage("Password")</td>
+            <td align="center" width="50%">@Html.Password("Password")</td>
+            
         </tr>
         <tr>
-            <td align="right" width="50%"><input type="submit" value="Отправить" /></td>
+            <td align="center" width="50%"><br><input type="submit" value="Отправить" /></td>
         </tr>
+         <tr><td align="center" width="50%"><br><br>@Html.ValidationMessage("Login")</td></tr>
+         <tr><td align="center" width="50%">@Html.ValidationMessage("Password")</td></tr>
     </table>
 
 }
