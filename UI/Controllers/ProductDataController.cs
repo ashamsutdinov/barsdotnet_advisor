@@ -80,5 +80,12 @@ namespace UI.Controllers
             }
             return View();
         }
+
+        public ActionResult MyProducts()
+        {
+            //или как тут?)
+            //List<Product> prods = _productManager.Get(CurrentUser.Id)
+            return View();
+        }
     }
 }

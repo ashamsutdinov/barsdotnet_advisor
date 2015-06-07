@@ -150,6 +150,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProductPhotosModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3213,6 +3214,9 @@
     <Content Include="Views\ProductData\Add.cshtml" />
     <Content Include="Views\ProductData\Edit.cshtml" />
     <Content Include="Views\ProductData\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductData\MyProducts.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
