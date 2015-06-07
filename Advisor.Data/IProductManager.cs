@@ -13,10 +13,8 @@ namespace Advisor.Data
         Product SaveChanges(int id, string name, string info, int minval, int maxval, string category);
         bool Delete(int id);
 
-        //найти товары пользователя
-        IQueryable<Product> GetProducts(int UserId);
         //взять самые популярные товары
-        IQueryable<Product> GetMostPop();
+        IEnumerable<Product> GetMostPop(int count);
         
         //
     }

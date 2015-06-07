@@ -18,6 +18,7 @@ namespace Advisor.Dal.Mapping
             Property(u => u.DateOfCreate);
             Property(u => u.Info);
             Property(u => u.CategoryId);
+            Property(u => u.Rating);
 
             //---
             Bag(x => x.Comments, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());

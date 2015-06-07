@@ -11,8 +11,11 @@
 
         @Html.DisplayFor(m => m.UserLogin)
         @Html.DisplayFor(m => m.DateOfCreate)
-
-        <p>
+        @if (Model.AverageRating!=0)
+        { 
+            @Html.DisplayFor(m => m.AverageRating)
+        }
+            <p>
             @Html.LabelFor(m => m.Name, "Название товара")
             <br />
             @Html.DisplayFor(m => m.Name)

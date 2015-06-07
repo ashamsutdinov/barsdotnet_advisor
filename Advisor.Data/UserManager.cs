@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Advisor.Dal;
 using Advisor.Dal.Domain;
+using System.Collections.Generic;
 
 namespace Advisor.Data
 {
@@ -114,6 +115,16 @@ namespace Advisor.Data
             var passwordBytes = Encoding.UTF8.GetBytes(password);
             var hashBytes = algorithm.ComputeHash(passwordBytes);
             return Convert.ToBase64String(hashBytes);
+        }
+
+        //найти товары пользователя
+        public IEnumerable<Product> GetProducts(int userId)
+        {
+            using (var da = new ProductDa())
+            {
+                //IQueryable<Product> Prods = da.Select(p => p.UserId == UserId);
+                return da.GetAllByOwner(userId);
+            }
         }
     }
 }

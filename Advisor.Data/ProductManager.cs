@@ -47,7 +47,8 @@ namespace Advisor.Data
                     MinValue = minval,
                     MaxValue = maxval,
                     CategoryId = c.Id,
-                    DateOfCreate = DateTime.Today
+                    DateOfCreate = DateTime.Today,
+                    Rating=0
                 };
                 /*using (var pda = new ProductPhotoDa())//добавляем фотографию
                 {
@@ -102,20 +103,14 @@ namespace Advisor.Data
         }
 
 
-        //найти товары пользователя
-        public IQueryable<Product> GetProducts(int UserId)
+       
+        //взять самые популярные товары
+        public IEnumerable<Product> GetMostPop(int count)
         {
             using (var da = new ProductDa())
             {
-              IQueryable <Product> Prods= da.Select(p=>p.UserId==UserId);          
-              return Prods;
+                return da.GetMostPopular(count);
             }
-        }
-        //взять самые популярные товары
-        public IQueryable<Product> GetMostPop()
-        {
-            //доделать
-            return null;
         }
         
     }

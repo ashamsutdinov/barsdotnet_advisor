@@ -1,4 +1,5 @@
 ﻿using Advisor.Dal.Domain;
+using System.Collections.Generic;
 
 namespace Advisor.Data
 {
@@ -19,5 +20,8 @@ namespace Advisor.Data
         User ChangeLogin(int id, string newLogin);
         
         User ChangePassword(int id, string oldPassword, string newPassword);
+
+         //найти товары пользователя
+        IEnumerable<Product> GetProducts(int userId);
     }
 }

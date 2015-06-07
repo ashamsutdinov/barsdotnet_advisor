@@ -5,6 +5,5 @@ namespace Advisor.Dal
     public class CategoryDa:
         Dao<int,Category>
     {
-
     }
 }

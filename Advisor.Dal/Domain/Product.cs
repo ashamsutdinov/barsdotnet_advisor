@@ -24,16 +24,14 @@ namespace Advisor.Dal.Domain
 
         public virtual int CategoryId { get; set; }
 
+        public virtual int Rating { get; set; }
+
         //----
         public virtual IList<Comment> Comments { get; set; }
         public virtual Category Category { get; set; }
         public virtual User User { get; set; }
         public virtual IList<Rating> Ratings { get; set; }
         public virtual IList<ProductPhoto> ProductPhotos { get; set; }
-
-
-
-        
 
     }
 }

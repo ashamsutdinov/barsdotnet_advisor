@@ -22,6 +22,7 @@ namespace UI.Builders
             pm.MaxValue = product.MaxValue;
             pm.MinValue = product.MinValue;
             pm.Name = product.Name;
+            pm.AverageRating = product.Rating;
 
             pm.UserLogin = _userManager.Get(product.UserId).Login;
             pm.Category = _categoryManager.Get(product.CategoryId).Name;
