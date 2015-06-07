@@ -11,6 +11,7 @@ namespace Advisor.Data
         Product Add(int userId, string name, string info, int minval, int maxval, string category);
         Product Get(int id);
         Product SaveChanges(int id, string name, string info, int minval, int maxval, string category);
+        bool Delete(int id);
 
         //найти товары пользователя
         IQueryable<Product> GetProducts(int UserId);

@@ -23,31 +23,31 @@
                 @Html.HiddenFor(m => m.Password)
                 @Html.HiddenFor(m => m.PasswordClone)
 
-                <td align="center" width="50%"><b>Ваш логин: </b></td>
+                <td align="center" width="50%"><b>Логин: </b></td>
                 <td>@Html.EditorFor(m => m.Login)</td>
                 <td>@Html.ValidationMessage("Login")</td>
             </tr>
             <tr>
-                <td align="center" width="50%"><b>Ваше имя: </b></td>
+                <td align="center" width="50%"><b>Имя: </b></td>
                 <td>@Html.EditorFor(m => m.Name) </td>
                 <td> @Html.ValidationMessage("Name") </td>
 
             </tr>
             <tr>
-                <td align="center" width="50%"><b>Ваша фамилия: </b></td>
+                <td align="center" width="50%"><b>Фамилия: </b></td>
                 <td>@Html.EditorFor(m => m.Sirname) </td>
                 <td>@Html.ValidationMessage("Sirname") </td>
 
             </tr>
             <tr>
-                <td align="center" width="50%"><b>Ваш email: </b></td>
+                <td align="center" width="50%"><b>Email: </b></td>
                 <td>@Html.EditorFor(m => m.Email)</td>
                 <td>@Html.ValidationMessage("Email") </td>
 
             </tr>
             <tr>
                 <td align="center" width="50%"><b>Информация о вас: </b></td>
-                <td>@Html.EditorFor(m => m.Info) </td>
+                <td>@Html.EditorFor(m => m.Info,new { height = "400px"}) </td>
                 <td> @Html.ValidationMessage("Info") </td>
 
             </tr>

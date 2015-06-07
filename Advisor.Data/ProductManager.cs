@@ -90,7 +90,16 @@ namespace Advisor.Data
             }
         }
 
-
+        public bool Delete(int id)
+        {
+            using (var da = new ProductDa())
+            {
+                var product = da.GetById(id);
+                if (product == null) return false;
+                da.Delete(product);
+                return true;
+            }
+        }
 
 
         //найти товары пользователя

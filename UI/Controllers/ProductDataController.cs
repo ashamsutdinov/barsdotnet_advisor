@@ -81,6 +81,27 @@ namespace UI.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            if (id==null)
+            {
+                return HttpNotFound();//пусть так
+            }
+            return View();
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            _productManager.Delete((int)id);
+            return RedirectToAction("Index");
+        }
+
 
         public ActionResult MyProducts()
         {
