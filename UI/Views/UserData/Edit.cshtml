@@ -3,49 +3,107 @@
 @{
     ViewBag.Title = "Редактирование личных данных";
 }
+<br>
+<table>
+    <tr>
+        
 
-<h2>Изменение данных пользователя</h2>
-@using (Html.BeginForm("Edit", "UserData", FormMethod.Post))
-{
-    @Html.ValidationSummary(true)
-    <fieldset>
-        @Html.HiddenFor(m => m.Id)
-        @Html.HiddenFor(m => m.Password)
-        @Html.HiddenFor(m => m.PasswordClone)
+        @using (Html.BeginForm("Edit", "UserData", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+        <td width="10%"></td>
+    <td width="40%">
 
-        @Html.EditorFor(m => m.Login)
-        @Html.ValidationMessage("Login")
-        @Html.EditorFor(m => m.Name)
-        @Html.ValidationMessage("Name")
-        @Html.EditorFor(m => m.Sirname)
-        @Html.ValidationMessage("Sirname")
-        @Html.EditorFor(m => m.Email)
-        @Html.ValidationMessage("Email")
-        @Html.EditorFor(m => m.Info)
-        @Html.ValidationMessage("Info")
-        <p><input type="submit" value="Сохранить изменения" /></p>
-    </fieldset>
-}
-@using (Html.BeginForm("EditPassword", "UserData", FormMethod.Post))
-{
-    <fieldset>
-        @Html.HiddenFor(m => m.Id)
-        @Html.HiddenFor(m => m.Login)
-        @Html.HiddenFor(m => m.Name)
-        @Html.HiddenFor(m => m.Sirname)
-        @Html.HiddenFor(m => m.Email)
-        @Html.HiddenFor(m => m.Info)
-        Введите старый пароль:
-        @Html.Password("oldPassword");
-        @ViewBag.oldPasswordMessage;
-        Введите новый пароль:
-        @Html.PasswordFor(m => m.Password)
-        @Html.ValidationMessage("Password")
-        Повторите новый пароль:
-        @Html.PasswordFor(m => m.PasswordClone)
-        @Html.ValidationMessage("PasswordClone")
+        <h2><font color="green"><center> Изменение данных пользователя </center></font></h2>
+        <br><br>
+        <table border="0" width="100%" align="center">
+            <tr>
 
-        <p><input type="submit" value="Сохранить изменения" /></p>
-    </fieldset>
-}
+                @Html.HiddenFor(m => m.Id)
+                @Html.HiddenFor(m => m.Password)
+                @Html.HiddenFor(m => m.PasswordClone)
 
+                <td align="center" width="50%"><b>Ваш логин: </b></td>
+                <td>@Html.EditorFor(m => m.Login)</td>
+                <td>@Html.ValidationMessage("Login")</td>
+            </tr>
+            <tr>
+                <td align="center" width="50%"><b>Ваше имя: </b></td>
+                <td>@Html.EditorFor(m => m.Name) </td>
+                <td> @Html.ValidationMessage("Name") </td>
+
+            </tr>
+            <tr>
+                <td align="center" width="50%"><b>Ваша фамилия: </b></td>
+                <td>@Html.EditorFor(m => m.Sirname) </td>
+                <td>@Html.ValidationMessage("Sirname") </td>
+
+            </tr>
+            <tr>
+                <td align="center" width="50%"><b>Ваш email: </b></td>
+                <td>@Html.EditorFor(m => m.Email)</td>
+                <td>@Html.ValidationMessage("Email") </td>
+
+            </tr>
+            <tr>
+                <td align="center" width="50%"><b>Информация о вас: </b></td>
+                <td>@Html.EditorFor(m => m.Info) </td>
+                <td> @Html.ValidationMessage("Info") </td>
+
+            </tr>
+            <tr>
+                <td align="center" width="50%" colspan="2"><br><input type="submit" value="Сохранить изменения" /></td>
+            </tr>
+        </table>
+    </td>
+
+        }
+
+        @using (Html.BeginForm("EditPassword", "UserData", FormMethod.Post))
+        {
+
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.Login)
+            @Html.HiddenFor(m => m.Name)
+            @Html.HiddenFor(m => m.Sirname)
+            @Html.HiddenFor(m => m.Email)
+            @Html.HiddenFor(m => m.Info)
+
+        <td width="10%"></td>
+        <td width="30%">
+            <table border="0" width="100%" align="center">
+                <tr>
+
+                    <h2><font color="green"><center> Изменение пароля </center></font></h2>
+                    <br>
+                    <br>
+
+                    <td align="center" width="50%"><b>Введите старый пароль: </b></td>
+                    <td>@Html.Password("oldPassword")</td>
+                    <td>@ViewBag.oldPasswordMessage</td>
+                </tr>
+
+                <tr>
+                    <td align="center" width="50%"><b> Введите новый пароль: </b></td>
+                    <td>@Html.PasswordFor(m => m.Password)</td>
+                    <td>@Html.ValidationMessage("Password")</td>
+                </tr>
+
+                <tr>
+
+                    <td align="center" width="50%"><b>Повторите новый пароль: </b></td>
+                    <td>@Html.PasswordFor(m => m.PasswordClone)</td>
+                    <td>@Html.ValidationMessage("PasswordClone")</td>
+                </tr>
+                <tr>
+                    <td align="center" width="50%" colspan="2"><br><input type="submit" value="Сохранить изменения" /></td>
+                </tr>
+
+            </table>
+
+        </td>
+            <td width="10%"></td>
+
+
+        }
+</tr></table>
