@@ -7,6 +7,7 @@ using Advisor.Data;
 using UI.Models;
 using System.Web.Security;
 using Advisor.Dal.Domain;
+using UI.Builders;
 
 
 namespace UI.Controllers
@@ -36,16 +37,17 @@ namespace UI.Controllers
             {
                 return HttpNotFound();
             }
-            ProductModel model = ProductModel.FromDomainProduct(product);
+            ProductModel model = ProductBuilder.Build(product);
             return View(model);
         }
 
-
+        //тут еще нет, собсственно сохранения
         [HttpPost]
         public ActionResult Edit(ProductModel model)
         {
             if (ModelState.IsValid)
             {
+                
                 return Redirect("/");
                 //пусть пока сюда
             }
