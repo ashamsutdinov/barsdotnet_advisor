@@ -27,7 +27,7 @@ namespace UI.Controllers
                 filterContext.Principal = new GenericPrincipal(
                     new GenericIdentity(id.ToString()), new string[] { });
                 ViewBag.IsAuthorized = true;
-                ViewBag.CurName = CurrentUser.Name; 
+                ViewBag.Login = CurrentUser.Login; 
             }
             catch
             {

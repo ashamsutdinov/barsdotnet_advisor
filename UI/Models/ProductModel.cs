@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Advisor.Dal.Domain;
 using Advisor.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace UI.Models
 {
@@ -11,18 +12,21 @@ namespace UI.Models
     {
         public int Id { get; set; }
 
-        public int UserId { get; set; }
+        public string UserLogin { get; set; }
+
+        [Required(ErrorMessage = "Укажите название услуги")]
+        public string Name { get; set; }
 
         public string Info { get; set; }
 
         public int MinValue { get; set; }
 
+        
         public int MaxValue { get; set; }
 
         public DateTime DateOfCreate { get; set; }
 
-        public string Name { get; set; }
-
+        [Required(ErrorMessage = "Укажите категорию")]
         public string Category { get; set; }
         
     }

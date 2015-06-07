@@ -6,3 +6,71 @@
 
 <h2>Главная страница товара</h2>
 
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.DisplayFor(m => m.UserLogin)
+        @Html.DisplayFor(m => m.DateOfCreate)
+
+        <p>
+            @Html.LabelFor(m => m.Name, "Название товара")
+            <br />
+            @Html.DisplayFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Info, "Информация")
+            <br />
+            @Html.DisplayFor(m => m.Info)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.MinValue, "Минимальная цена")
+            <br />
+            @Html.DisplayFor(m => m.MinValue)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.MaxValue, "Максимальная цена")
+            <br />
+            @Html.DisplayFor(m => m.MaxValue)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Category, "Категория")
+            <br />
+            @Html.DisplayFor(m => m.Category)
+        </p>
+    </fieldset>
+@{
+    if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
+    { 
+        <a href="/ProductData/Add">Редактировать товар</a>
+    }
+    else
+    {
+        //поле для оставления оценок
+        //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
+        //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
+        
+        //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
+        {
+            Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
+            //p><input type="submit" value="Оставить" /></p>
+        }
+    }
+}
+@{
+    //поле для комментариев
+    if (ViewBag.IsAuthorized)
+    {
+        @Html.TextArea("Comment");
+        <p><input type="submit" value="Оставить отзыв" /></p>
+    }
+    else
+    {
+        @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")
+    }
+    
+}
+@{
+    //а вот тут должны отображаться уже оставленные комментарии
+    //Но их пока нет
+    //оставь для них место, ладно?
+}

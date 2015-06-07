@@ -20,9 +20,10 @@ namespace UI.Controllers
             = new ProductBuilder();
 
         //главная страница продукта
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            var product=_productManager.Get(id);
+            return View(_productBuilder.Build(product));
         }
 
         //!!!!!
@@ -52,15 +53,9 @@ namespace UI.Controllers
             {
                 _productManager.SaveChanges(model.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
                 return Redirect("/");
-                //пусть пока сюда
             }
             return View();
         }
-
-
-
-
-        
 
 
         //на этот метод приходят user, когда вбивает в командной строке
@@ -85,6 +80,7 @@ namespace UI.Controllers
             }
             return View();
         }
+
 
         public ActionResult MyProducts()
         {

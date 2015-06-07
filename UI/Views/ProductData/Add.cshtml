@@ -6,13 +6,16 @@
 
 @using (Html.BeginForm("Add", "ProductData", FormMethod.Post, new { enctype = "multipart/form-data" }))
 { // доделать поддержку фотографии
-    
+  
     <br>
    <h2><font color="green"><center> Добавление нового товара </center></font></h2>
     <br><br>
+    @Html.ValidationSummary(true)
     <table border="0" width="100%" align="left">
 	<tr><td align="right" width="50%"><b>Введите название товара(услуги): </b></td>
-		<td>@Html.TextBox("Name")</td>
+
+        <td>@Html.TextBox("Name")</td>        
+        @Html.ValidationMessage("Name")
         
         </tr>
 	<tr><td align="right" width="50%"><b>Введите информацию о товаре(услуге): </b></td>
@@ -23,10 +26,11 @@
 		<td>@Html.TextBox("MaxValue")</td></tr>
 	<tr><td align="right" width="50%"><b>Введите название категории </b></td>
 		<td>@Html.TextBox("Category")</td></tr>
-	<tr><td align="right" width="50%"><b>Фотография: </b></td>       
-		<td>@Html.TextArea("Info")</td></tr>
+        @Html.ValidationMessage("Category")
+	@*<tr><td align="right" width="50%"><b>Фотография: </b></td>
+    <td>@Html.TextArea("Info")</td></tr>*@
 	<input type=hidden value=1 name=type>
 	<tr><td align="right"></td><td>
-		<input type=submit value="Отправить"></tr>
+		<input type=submit value="Добавить услугу"></tr>
 </table>
 }
