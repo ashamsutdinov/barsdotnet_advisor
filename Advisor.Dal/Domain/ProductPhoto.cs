@@ -12,7 +12,10 @@ namespace Advisor.Dal.Domain
 
         public virtual byte[] Photo { get; set; }
 
+        public virtual string MimeType { get; set; }
+
         public virtual int ProductId { get; set; }
+        
 
         //---
         public virtual Product Product { get; set; }

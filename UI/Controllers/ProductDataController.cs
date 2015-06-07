@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Advisor.Data;
 using UI.Models;
 using System.Web.Security;
 using Advisor.Dal.Domain;
 using UI.Builders;
-
+using Advisor.Data;
 
 namespace UI.Controllers
 {
@@ -18,6 +17,9 @@ namespace UI.Controllers
             = Services.Factory.Get<IProductManager>();
         private readonly ProductBuilder _productBuilder
             = new ProductBuilder();
+        private readonly IProductPhotoManager _photoManager
+            = Services.Factory.Get<IProductPhotoManager>();
+
 
         //главная страница продукта
         public ActionResult Index(int id)
@@ -70,15 +72,50 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(ProductModel model)
+        public ActionResult Add(ProductModel model,HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
-                _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
-                //фотка нужна
-                return Redirect("/");
+
+
+
+                Product p = _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
+                if (image != null)
+                {//если есть изображение, то добавляем его в базу
+                    ProductPhoto Photo = new ProductPhoto();
+                    Photo.MimeType = image.ContentType;
+                    Photo.Photo = new byte[image.ContentLength];
+                    image.InputStream.Read(Photo.Photo, 0, image.ContentLength);
+                    Photo=_photoManager.Add(Photo.Photo, Photo.MimeType, p.Id);
+                    model.PhotosId.Add(Photo.Id);
+                    //_productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);!!!!!
+                    //а также ее id к модели
+                }
+                TempData["message"] = string.Format("{0} has been saved", p.Name);
+                return RedirectToAction("Index");
             }
+            else
+            {//что-то пошло не так
             return View();
+        }
+        }
+        //потом добавить список изображений
+        public FileContentResult GetImage(int productId)
+        {
+            Product prod = _productManager.Get(productId);
+            List<FileContentResult> ListPhotos = new List<FileContentResult>();
+            //Product prod = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+            if (prod != null)
+            {
+                //     return File(prod.ImageData, prod.ImageMimeType);
+                foreach (var p in _photoManager.GetPhotos(productId))
+                { ListPhotos.Add(File(p.Photo, p.MimeType));  }
+                return ListPhotos[ListPhotos.Count-1];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [HttpGet]

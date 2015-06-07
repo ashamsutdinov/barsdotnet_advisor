@@ -6,7 +6,7 @@
 
 @using (Html.BeginForm("Add", "ProductData", FormMethod.Post, new { enctype = "multipart/form-data" }))
 { // доделать поддержку фотографии
-  
+    
     <br>
    <h2><font color="green"><center> Добавление нового товара </center></font></h2>
     <br><br>
@@ -14,7 +14,7 @@
     <table border="0" width="100%" align="left">
 	<tr><td align="right" width="50%"><b>Введите название товара(услуги): </b></td>
 
-        <td>@Html.TextBox("Name")</td>        
+		<td>@Html.TextBox("Name")</td>
         @Html.ValidationMessage("Name")
         
         </tr>
@@ -27,8 +27,18 @@
 	<tr><td align="right" width="50%"><b>Введите название категории </b></td>
 		<td>@Html.TextBox("Category")</td></tr>
         @Html.ValidationMessage("Category")
-	@*<tr><td align="right" width="50%"><b>Фотография: </b></td>
-    <td>@Html.TextArea("Info")</td></tr>*@
+	<tr><td align="center" width="100%">
+    <tr><td><div class="editor-label">Фотография</div> </td></tr>
+    <tr><td align="center" width="100%">    <div class="editor-field">
+                @if (Model.PhotosId.Count==0) {<b>Нет изображения</b>}
+                 else {
+ <img width="150" height="150" src="Url.Action("GetImage", "ProductData", new { Model.ProductID })" />
+                      }
+                 <div> Загрузить фотографию:
+                     <input type="file" name="Image" />
+                 </div>
+       </div>
+	   </td> </tr>   
 	<input type=hidden value=1 name=type>
 	<tr><td align="right"></td><td>
 		<input type=submit value="Добавить услугу"></tr>
