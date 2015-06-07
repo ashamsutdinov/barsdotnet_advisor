@@ -50,7 +50,7 @@ namespace UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                _productManager.SaveChanges(model.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
                 return Redirect("/");
                 //пусть пока сюда
             }
@@ -79,7 +79,7 @@ namespace UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category, "");
+                _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
                 //фотка нужна
                 return Redirect("/");
             }
