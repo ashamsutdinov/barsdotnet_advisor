@@ -19,30 +19,26 @@ namespace Advisor.Data
             }
         }
 
-
         //добавить новый продукт
         public Product Add(int userId, string name, string info, int minval, int maxval, string category)
         {
             using (var da = new ProductDa())
             {
-                int categor;
-
-                //!!!!!!!!1>??????
+                Category c;
                 using (var cda = new CategoryDa())//определяем категорию товара.
                 {
-                    Category c = cda.GetFirst(u => u.Name == category);
+                    c = cda.GetFirst(u => u.Name == category);
                     if (c == null)//если введенной категории не существует
                     {
-                        c = new Category
+                        /*c = new Category
                         {
                             Info = "Пользовательская категория",
                             Name = category
                         };
                         cda.Save(c);
-                        categor = c.Id;
+                        categor = c.Id;*/
+                        return null;
                     }
-                    else
-                        categor = c.Id;
                 }
                 Product product = new Product
                 {
@@ -51,7 +47,7 @@ namespace Advisor.Data
                     Info = info,
                     MinValue = minval,
                     MaxValue = maxval,
-                    CategoryId = categor,
+                    CategoryId = c.Id,
                     DateOfCreate = DateTime.Today
                 };
                 /*using (var pda = new ProductPhotoDa())//добавляем фотографию

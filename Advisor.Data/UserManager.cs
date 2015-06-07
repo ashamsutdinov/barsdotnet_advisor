@@ -70,22 +70,28 @@ namespace Advisor.Data
             using (var da = new UserDa())
             {
                 var user=this.Get(id);
-                user.Login = newLogin;
-                return da.Save(user);
+                if (user != null)
+                {
+                    user.Login = newLogin;
+                    return da.Save(user);
+                }
+                return user;
             } 
         }
+
+        //занимается еще и тем, что проверяет, тот ли старый пароль
         //если передан не тот пароль
-        public User ChangePassword(string login, string oldPassword, string newPassword)
+        public User ChangePassword(int id, string oldPassword, string newPassword)
         {
             using (var da = new UserDa())
             {
-                var user = this.Get(login);
-                if (user.PasswordHash == this.CalculateHash(oldPassword))
+                var user = this.Get(id);
+                if (user==null || user.PasswordHash == this.CalculateHash(oldPassword))
                 {
                     user.PasswordHash = this.CalculateHash(newPassword);
                     return da.Save(user);
                 }
-                else return user;
+                else return null;
             } 
         }
 

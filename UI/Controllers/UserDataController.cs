@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Advisor.Data;
 using UI.Models;
 using System.Web.Security;
+using UI.Builders;
 
 namespace UI.Controllers
 {
@@ -13,6 +14,8 @@ namespace UI.Controllers
     {
         private readonly IUserManager _userManager
             = Services.Factory.Get<IUserManager>();
+        private readonly UserBuilder _userBuilder
+            =new UserBuilder();
 
         public ActionResult Index()
         {
@@ -50,28 +53,45 @@ namespace UI.Controllers
         {
             if (this.CurrentUser != null)
             {
-                return View();
+                return View(_userBuilder.Build(CurrentUser));
             }
             else return Redirect("/");
         }
-        //!!!!!!!!!!!
+        
         [HttpPost]
         public ActionResult Edit(UserModel model)
         {
-            //!!!!изменеие чего это все???
             if (ModelState.IsValid)
             {
                 var user = _userManager.Get(model.Login);
-                if (user == null)
+                if (user == null || user.Id==model.Id)
                 {
                     _userManager.ChangeLogin(model.Id, model.Login);
                     _userManager.ChangeData(model.Id, model.Name, model.Sirname, model.Email, model.Info);
-                    //????
-                    return Redirect("/UserData/Index");
+                    //return Redirect("/UserData/Index");
+                    ModelState.AddModelError("","Изменения сохранены");
+                    return View();
                 }
+                ModelState.AddModelError("Login", "Такой логин уже существует");
                 return View();
             }
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditPassword(UserModel model, string oldPassword)
+        {
+            if (ModelState.IsValid)
+            {
+                var user=_userManager.ChangePassword(model.Id, oldPassword, model.Password);
+                if (user != null)//если пароль верен
+                {
+                    return Redirect("/UserData/Index");
+                }
+                ViewBag.oldPasswordMessage = "Введенный пароль неверен";
+                return View("Edit");
+            }
+            return View("Edit");
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using UI.Models;
 using System.Web.Security;
 using Advisor.Dal.Domain;
+using UI.Builders;
 using Advisor.Data;
 
 namespace UI.Controllers
@@ -14,14 +15,17 @@ namespace UI.Controllers
     {
         private readonly IProductManager _productManager
             = Services.Factory.Get<IProductManager>();
+        private readonly ProductBuilder _productBuilder
+            = new ProductBuilder();
         private readonly IProductPhotoManager _photoManager
             = Services.Factory.Get<IProductPhotoManager>();
 
 
         //главная страница продукта
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            var product=_productManager.Get(id);
+            return View(_productBuilder.Build(product));
         }
 
         //!!!!!
@@ -38,26 +42,22 @@ namespace UI.Controllers
             {
                 return HttpNotFound();
             }
-            ProductModel model = ProductModel.FromDomainProduct(product);
+            
+            ProductModel model = _productBuilder.Build(product);
             return View(model);
         }
 
-
+        //тут еще нет, собсственно сохранения
         [HttpPost]
         public ActionResult Edit(ProductModel model)
         {
             if (ModelState.IsValid)
             {
+                _productManager.SaveChanges(model.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
                 return Redirect("/");
-                //пусть пока сюда
             }
             return View();
         }
-
-
-
-
-        
 
 
         //на этот метод приходят user, когда вбивает в командной строке
@@ -95,8 +95,8 @@ namespace UI.Controllers
             }
             else
             {//что-то пошло не так
-                return View();
-            }
+            return View();
+        }
         }
         //потом добавить список изображений
         public FileContentResult GetImage(int productId)
@@ -116,6 +116,7 @@ namespace UI.Controllers
                 return null;
             }
         }
+
 
         public ActionResult MyProducts()
         {
