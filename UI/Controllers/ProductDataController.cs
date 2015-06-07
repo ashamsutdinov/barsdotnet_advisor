@@ -17,18 +17,26 @@ namespace UI.Controllers
             = Services.Factory.Get<IProductManager>();
         private readonly ProductBuilder _productBuilder
             = new ProductBuilder();
+ 
         private readonly IProductPhotoManager _photoManager
             = Services.Factory.Get<IProductPhotoManager>();
 
 
         //главная страница продукта
-        public ActionResult Index(int id)
+        public ActionResult Index(int? id)
         {
-            var product=_productManager.Get(id);
+            if (id==null)
+            {
+                return HttpNotFound();
+            }
+            var product=_productManager.Get((int)id);
+            if (product==null)
+            {
+                return HttpNotFound();
+            }
             return View(_productBuilder.Build(product));
         }
 
-        //!!!!!
         //изменение продукта
         [HttpGet]
         public ActionResult Edit(int? id)
@@ -76,9 +84,6 @@ namespace UI.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
-
                 Product p = _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
                 if (image != null)
                 {//если есть изображение, то добавляем его в базу
@@ -88,7 +93,6 @@ namespace UI.Controllers
                     image.InputStream.Read(Photo.Photo, 0, image.ContentLength);
                     Photo=_photoManager.Add(Photo.Photo, Photo.MimeType, p.Id);
                     model.PhotosId.Add(Photo.Id);
-                    //_productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);!!!!!
                     //а также ее id к модели
                 }
                 TempData["message"] = string.Format("{0} has been saved", p.Name);
@@ -96,9 +100,10 @@ namespace UI.Controllers
             }
             else
             {//что-то пошло не так
-            return View();
+                return View();
+            }
         }
-        }
+
         //потом добавить список изображений
         public FileContentResult GetImage(int productId)
         {
