@@ -55,8 +55,10 @@
     <Compile Include="CategoryManager.cs" />
     <Compile Include="ICategoryManager.cs" />
     <Compile Include="IProductManager.cs" />
+    <Compile Include="IProductPhotoManager.cs" />
     <Compile Include="IUserManager.cs" />
     <Compile Include="ProductManager.cs" />
+    <Compile Include="ProductPhotoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocator.cs" />
     <Compile Include="Services.cs" />

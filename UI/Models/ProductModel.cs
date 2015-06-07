@@ -25,6 +25,8 @@ namespace UI.Models
 
         public string Category { get; set; }
 
+        public List<int> PhotosId {get;set;}//ссылки на фото
+
         //вопроооооос, куда запихать
         public static ProductModel FromDomainProduct(Product product)
         {
@@ -35,7 +37,6 @@ namespace UI.Models
             pm.MinValue = product.MinValue;
             pm.Name = product.Name;
             pm.UserId = product.UserId;
-
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             //pm.Category = product.Category.Name;
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

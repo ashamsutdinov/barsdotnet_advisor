@@ -23,8 +23,18 @@
 		<td>@Html.TextBox("MaxValue")</td></tr>
 	<tr><td align="right" width="50%"><b>Введите название категории </b></td>
 		<td>@Html.TextBox("Category")</td></tr>
-	<tr><td align="right" width="50%"><b>Фотография: </b></td>       
-		<td>@Html.TextArea("Info")</td></tr>
+	<tr><td align="center" width="100%">
+    <tr><td><div class="editor-label">Фотография</div> </td></tr>
+    <tr><td align="center" width="100%">    <div class="editor-field">
+                @if (Model.PhotosId.Count==0) {<b>Нет изображения</b>}
+                 else {
+ <img width="150" height="150" src="Url.Action("GetImage", "ProductData", new { Model.ProductID })" />
+                      }
+                 <div> Загрузить фотографию:
+                     <input type="file" name="Image" />
+                 </div>
+       </div>
+	   </td> </tr>   
 	<input type=hidden value=1 name=type>
 	<tr><td align="right"></td><td>
 		<input type=submit value="Отправить"></tr>

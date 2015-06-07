@@ -21,7 +21,7 @@ namespace Advisor.Data
 
 
         //добавить новый продукт
-        public Product Add(int userId, string name, string info, int minval, int maxval, string category, string photoprod)
+        public Product Add(int userId, string name, string info, int minval, int maxval, string category)
         {
             using (var da = new ProductDa())
             {
