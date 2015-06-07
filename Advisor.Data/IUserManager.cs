@@ -18,6 +18,6 @@ namespace Advisor.Data
         
         User ChangeLogin(int id, string newLogin);
         
-        User ChangePassword(string login, string oldPassword, string newPassword);
+        User ChangePassword(int id, string oldPassword, string newPassword);
     }
 }

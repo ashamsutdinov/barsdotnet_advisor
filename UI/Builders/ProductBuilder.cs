@@ -8,9 +8,10 @@ using Advisor.Data;
 
 namespace UI.Builders
 {
-    public static class ProductBuilder
+    public class ProductBuilder
+        :IBuilder<ProductModel,Product>
     {
-        public static ProductModel Build(Product product)
+        public ProductModel Build(Product product)
         {
             ProductModel pm = new ProductModel();
             pm.Id = product.Id;

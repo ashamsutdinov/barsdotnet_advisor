@@ -7,6 +7,7 @@ using Advisor.Data;
 using UI.Models;
 using System.Web.Security;
 using Advisor.Dal.Domain;
+using UI.Builders;
 
 
 namespace UI.Controllers
@@ -15,6 +16,8 @@ namespace UI.Controllers
     {
         private readonly IProductManager _productManager
             = Services.Factory.Get<IProductManager>();
+        private readonly ProductBuilder _productBuilder
+            = new ProductBuilder();
 
         //главная страница продукта
         public ActionResult Index()
@@ -36,16 +39,18 @@ namespace UI.Controllers
             {
                 return HttpNotFound();
             }
-            ProductModel model = ProductModel.FromDomainProduct(product);
+            
+            ProductModel model = _productBuilder.Build(product);
             return View(model);
         }
 
-
+        //тут еще нет, собсственно сохранения
         [HttpPost]
         public ActionResult Edit(ProductModel model)
         {
             if (ModelState.IsValid)
             {
+                
                 return Redirect("/");
                 //пусть пока сюда
             }

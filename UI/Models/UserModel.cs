@@ -8,8 +8,7 @@ namespace UI.Models
 {
     public class UserModel
         :LoginModel
-    {
-        
+    {   
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Укажите имя")]

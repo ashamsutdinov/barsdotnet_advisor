@@ -5,4 +5,47 @@
 }
 
 <h2>Изменение данных пользователя</h2>
+@using (Html.BeginForm("Edit", "UserData", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Password)
+        @Html.HiddenFor(m => m.PasswordClone)
+
+        @Html.EditorFor(m => m.Login)
+        @Html.ValidationMessage("Login")
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessage("Name")
+        @Html.EditorFor(m => m.Sirname)
+        @Html.ValidationMessage("Sirname")
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessage("Email")
+        @Html.EditorFor(m => m.Info)
+        @Html.ValidationMessage("Info")
+        <p><input type="submit" value="Сохранить изменения" /></p>
+    </fieldset>
+}
+@using (Html.BeginForm("EditPassword", "UserData", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Login)
+        @Html.HiddenFor(m => m.Name)
+        @Html.HiddenFor(m => m.Sirname)
+        @Html.HiddenFor(m => m.Email)
+        @Html.HiddenFor(m => m.Info)
+        Введите старый пароль:
+        @Html.Password("oldPassword");
+        @ViewBag.oldPasswordMessage;
+        Введите новый пароль:
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessage("Password")
+        Повторите новый пароль:
+        @Html.PasswordFor(m => m.PasswordClone)
+        @Html.ValidationMessage("PasswordClone")
+
+        <p><input type="submit" value="Сохранить изменения" /></p>
+    </fieldset>
+}
 
