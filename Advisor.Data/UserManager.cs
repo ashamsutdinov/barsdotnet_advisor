@@ -86,7 +86,7 @@ namespace Advisor.Data
             using (var da = new UserDa())
             {
                 var user = this.Get(id);
-                if (user.PasswordHash == this.CalculateHash(oldPassword))
+                if (user==null || user.PasswordHash == this.CalculateHash(oldPassword))
                 {
                     user.PasswordHash = this.CalculateHash(newPassword);
                     return da.Save(user);
