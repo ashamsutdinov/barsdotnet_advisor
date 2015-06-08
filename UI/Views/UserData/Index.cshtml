@@ -1,8 +1,12 @@
 ﻿@model UI.Models.UserModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Персональная страница";
 }
 
-<h2>Index</h2>
+<h2>Персональная страница</h2>
+@Html.DisplayFor(m => m.Login)
+@Html.DisplayFor(m => m.Name)
+@Html.DisplayFor(m => m.Sirname)
+@Html.DisplayFor(m => m.Info)
 

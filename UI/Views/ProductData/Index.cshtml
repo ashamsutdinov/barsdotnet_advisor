@@ -10,7 +10,8 @@
     <fieldset>
         @Html.HiddenFor(m => m.Id)
 
-        @Html.DisplayFor(m => m.UserLogin)
+        <a href="/UserData/Index/?login=@Model.Login">@Model.UserLogin</a>
+
         @Html.DisplayFor(m => m.DateOfCreate)
         @if (Model.Rating!=0)
         { 

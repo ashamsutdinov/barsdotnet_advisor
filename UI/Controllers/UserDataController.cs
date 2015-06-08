@@ -94,14 +94,20 @@ namespace UI.Controllers
             return View("Edit");
         }
 
-
-        public ActionResult MyProducts()
+        //это не настоящий id, а логин
+        public ActionResult AllProducts(string login)
         {
-            if (CurrentUser != null)
+            if (login !="")
             {
-                ProductBuilder pb = new ProductBuilder();
-                IEnumerable<ProductModel> products = pb.BuildIEnumerable(_userManager.GetProducts(CurrentUser.Id));
-                return View(products);
+                var user=_userManager.Get(login);
+                //если такой пользователь не существует
+                if (user != null)
+                {
+                    ProductBuilder pb = new ProductBuilder();
+                    IEnumerable<ProductModel> products = pb.BuildIEnumerable(_userManager.GetProducts(user.Id));
+                    return View(products);
+                }
+                return Redirect("/");
             }
             return Redirect("/");
         }
