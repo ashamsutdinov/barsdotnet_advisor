@@ -22,13 +22,23 @@ namespace UI.Builders
             pm.MaxValue = product.MaxValue;
             pm.MinValue = product.MinValue;
             pm.Name = product.Name;
-            pm.AverageRating = product.Rating;
+            pm.Rating = product.Rating;
 
             pm.UserLogin = _userManager.Get(product.UserId).Login;
             pm.Category = _categoryManager.Get(product.CategoryId).Name;
 
             pm.DateOfCreate = product.DateOfCreate;
             return pm;
+        }
+
+        public IEnumerable<ProductModel> BuildIEnumerable(IEnumerable<Product> products)
+        {
+            List<ProductModel> res = new List<ProductModel>();
+            foreach(Product p in products)
+            {
+                res.Add(this.Build(p));
+            }
+            return res;
         }
     }
 }

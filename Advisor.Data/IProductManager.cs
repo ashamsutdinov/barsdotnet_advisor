@@ -14,7 +14,7 @@ namespace Advisor.Data
         bool Delete(int id);
 
         //взять самые популярные товары
-        IEnumerable<Product> GetMostPop(int count);
+        IEnumerable<Product> GetMostPop(int amount,int from);
         
         //
     }

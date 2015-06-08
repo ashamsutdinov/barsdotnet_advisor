@@ -12,26 +12,24 @@ namespace UI.Models
     {
         public int Id { get; set; }
 
-        public string UserLogin { get; set; }
-
         [Required(ErrorMessage = "Укажите название услуги")]
         public string Name { get; set; }
+
+        public DateTime DateOfCreate { get; set; }
+
+        public string UserLogin { get; set; }
 
         public string Info { get; set; }
 
         public int MinValue { get; set; }
-
         
         public int MaxValue { get; set; }
-
-        public DateTime DateOfCreate { get; set; }
 
         [Required(ErrorMessage = "Укажите категорию")]
         public string Category { get; set; }
 
-        public int AverageRating { get; set; }
+        public int Rating { get; set; }
 
         public List<int> PhotosId {get;set;}//ссылки на фото
-
     }
 }
