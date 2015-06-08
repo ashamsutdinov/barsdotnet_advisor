@@ -2,44 +2,21 @@
 @{
     ViewBag.Title = "Добавление товара";
 }
-
-    @using (Html.BeginForm("Add", "ProductData", FormMethod.Post))
-    {
-        // доделать поддержку фотографии
-        <br>
-        <h2><font color="green"><center> Добавление нового товара </center></font></h2>
-        <br>
-        <br>
+<br>
+<table>
+    <tr>
+        @using (Html.BeginForm("Add", "ProductData", FormMethod.Post))
+        {
+             
         @Html.ValidationSummary(true)
-    <table border="0" width="100%" align="left">
-        <tr>
-            <td align="center" width="50%"><b>Введите название товара(услуги): </b></td>
-            <td>@Html.TextBox("Name")</td>
-            <td>@Html.ValidationMessage("Name")</td>
-        </tr>
-        <tr>
-            <td align="center" width="50%"><b>Введите информацию о товаре(услуге): </b></td>
-            <td>@Html.TextArea("Info")</td>
-        </tr>
-        <tr>
-            <td align="center" width="50%"><b>Введите минимальную цену: </b></td>
-            <td>@Html.TextBox("MinValue")</td>
-        </tr>
-        <tr>
-            <td align="center" width="50%"><b>Введите максимальную цену: </b></td>
-            <td>@Html.TextBox("MaxValue")</td>
-        </tr>
-        <tr>
-            <td align="center" width="50%"><b>Введите название категории </b></td>
-            <td>@Html.TextBox("Category")</td>
-            <td>@Html.ValidationMessage("Category")</td>
-        </tr>
-
-        <tr><td align="center" width="100%"></td></tr>
-        <tr><td><div class="editor-label">Фотография</div> </td></tr>
-        <tr>
-            <td align="center" width="100%">
-                @*<div class="editor-field">
+             <td width="30%">
+                 <table border="0" width="100%" align="center">
+                     <tr>
+                         <td><div class="editor-label">Фотография</div> </td>
+                     </tr>
+                     <tr>
+                         <td align="center" width="100%">
+                             @*<div class="editor-field">
                         {
                         if (Model.PhotosId.Count==0)
                         {
@@ -52,17 +29,59 @@
                             <input type="file" name="Image" />
                         }
                     </div>*@
-                Загрузить фотографию:
-                <input type="file" name="Image" />
-            </td>
-        </tr>
-        <input type=hidden value=1 name= type>
-        <tr>
-            <td align="center"></td>
-            <td>
-                <input type=submit value="Добавить услугу">
-            </td>
-        </tr>
+                             Загрузить фотографию:
+                             <input type="file" name="Image" />
+                         </td>
+                     </tr>
+
+
+                 </table></td>
+            
+  
+    <td width="50%">
+        // доделать поддержку фотографии
+
+        <h2><font color="green"><center> Добавление нового товара </center></font></h2>
+        <br>
+        <br>
+        <table border="0" width="100%" align="center">
+            <tr>
+                <td align="center" width="50%"><b>Введите название товара(услуги): </b></td>
+                <td>@Html.TextBox("Name")</td>
+                <td>@Html.ValidationMessage("Name")</td>
+            </tr>
+            <tr>
+                <td align="center" width="50%"><b>Введите информацию о товаре(услуге): </b></td>
+                <td>@Html.TextArea("Info")</td>
+            </tr>
+            <tr>
+                <td align="center" width="50%"><b>Введите минимальную цену: </b></td>
+                <td>@Html.TextBox("MinValue")</td>
+            </tr>
+            <tr>
+                <td align="center" width="50%"><b>Введите максимальную цену: </b></td>
+                <td>@Html.TextBox("MaxValue")</td>
+            </tr>
+            <tr>
+                <td align="center" width="50%"><b>Введите название категории </b></td>
+                <td>@Html.TextBox("Category")</td>
+                <td>@Html.ValidationMessage("Category")</td>
+            </tr>
+           
+            
+            
+
+
+
+            @*<input type=hidden value=1 name= type>*@
+            <tr>
+                <td>
+                    <input type=submit value="Добавить услугу">
+                </td>
+            </tr>
+            }
+        </table>
+    </td>
+    <td width="20%"></td>
         }
-    </table>
-    }
+</tr></table>
