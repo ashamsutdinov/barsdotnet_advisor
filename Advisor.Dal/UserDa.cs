@@ -6,9 +6,6 @@ namespace Advisor.Dal
     public class UserDa :
         Dao<int, User>
     {
-       /* public IEnumerable<Comment> GetAllComments()
-        {
-            
-        }*/
+       
     }
 }

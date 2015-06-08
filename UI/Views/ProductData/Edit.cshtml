@@ -1,0 +1,43 @@
+﻿@model UI.Models.ProductModel
+
+@{
+    ViewBag.Title = "Редактирование продукта";
+}
+
+<h2>Редактирование товара</h2>
+@using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.UserLogin)
+        @Html.HiddenFor(m => m.DateOfCreate)
+        @Html.HiddenFor(m => m.Rating)
+        <p>
+            @Html.LabelFor(m => m.Name, "Название товара")
+            <br />
+            @Html.EditorFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Info, "Информация")
+            <br />
+            @Html.EditorFor(m => m.Info)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.MinValue, "Минимальная цена")
+            <br />
+            @Html.EditorFor(m => m.MinValue)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.MaxValue, "Максимальная цена")
+            <br />
+            @Html.EditorFor(m => m.MaxValue)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Category, "Категория")
+            <br />
+            @Html.EditorFor(m => m.Category)
+        </p>
+        <p><input type="submit" value="Сохранить изменения" /></p>
+    </fieldset>
+}
+
