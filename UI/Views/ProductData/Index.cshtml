@@ -1,7 +1,7 @@
 ﻿@model UI.Models.ProductModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Главная страница товара";
 }
 
 <h2>Главная страница товара</h2>
@@ -10,7 +10,8 @@
     <fieldset>
         @Html.HiddenFor(m => m.Id)
 
-        @Html.DisplayFor(m => m.UserLogin)
+        <a href="/UserData/Index/?login=@Model.UserLogin">@Model.UserLogin</a>
+
         @Html.DisplayFor(m => m.DateOfCreate)
         @if (Model.Rating!=0)
         { 
@@ -45,7 +46,7 @@
 
     if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
     { 
-        <a href="/ProductData/Add">Редактировать товар</a>
+        <a href="/ProductData/Edit/@Model.Id">Редактировать товар</a>
     }
     else
     {

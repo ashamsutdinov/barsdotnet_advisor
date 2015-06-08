@@ -2,16 +2,49 @@
 @{
     ViewBag.Title = "Добавление товара";
 }
-
+<br>
+<table>
+    <tr>
     @using (Html.BeginForm("Add", "ProductData", FormMethod.Post))
     {
+             
+        @Html.ValidationSummary(true)
+             <td width="30%">
+                 <table border="0" width="100%" align="center">
+                     <tr>
+                         <td><div class="editor-label">Фотография</div> </td>
+                     </tr>
+                     <tr>
+                         <td align="center" width="100%">
+                             @*<div class="editor-field">
+                        {
+                        if (Model.PhotosId.Count==0)
+                        {
+                        <b>Нет изображения</b>
+                        }
+                        else {
+                        <img width="150" height="150" src="Url.Action(" getimage", "ProductData" , new { model.productid })" />
+                        }
+                            Загрузить фотографию:
+                            <input type="file" name="Image" />
+                        }
+                    </div>*@
+                             Загрузить фотографию:
+                             <input type="file" name="Image" />
+                         </td>
+                     </tr>
+
+
+                 </table></td>
+            
+  
+    <td width="50%">
         // доделать поддержку фотографии
-        <br>
+
         <h2><font color="green"><center> Добавление нового товара </center></font></h2>
         <br>
         <br>
-        @Html.ValidationSummary(true)
-    <table border="0" width="100%" align="left">
+        <table border="0" width="100%" align="center">
         <tr>
             <td align="center" width="50%"><b>Введите название товара(услуги): </b></td>
             <td>@Html.TextBox("Name")</td>
@@ -56,13 +89,15 @@
                 </div>
             </td>
         </tr>
-        <input type=hidden value=1 name= type>
+        @*<input type=hidden value=1 name= type>*@
         <tr>
-            <td align="center"></td>
             <td>
                 <input type=submit value="Добавить услугу">
             </td>
         </tr>
         }
     </table>
+    </td>
+    <td width="20%"></td>
     }
+</tr></table>

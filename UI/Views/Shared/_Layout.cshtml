@@ -39,26 +39,9 @@
                     else
                     { <a href="/UserData/Register">Регистрация</a>  } |
                     @if (ViewBag.IsAuthorized)
-                    { <a href="/UserData/MyProducts"> Мои товары</a>} |
-                    @if (ViewBag.IsAuthorized) 
-                    { <a href="/ProductData/Add"> Добавить предложение</a>}
+                    { <a href="/UserData/AllProducts/?login=@ViewBag.Login"> Мои товары</a> 
+                     <a href="/ProductData/Add">| Добавить предложение</a>}
             <td bgcolor="ddffgg" width="25%" height="0,02">
-                @*<form action="Autorization.phtml" method="post">
-                 <table>
-                     <tr>
-                         <td align="right"><font size=6>Логин:</font></td>
-                         <td align="left"><input type=text style="width:60; height:20;" name=login></td>
-                     </tr>
-                     <tr>
-                         <td align="right"><font size=6>Пароль:</font></td>
-                         <td align="left"><input type=text style="width:60; height:20;" name=pass></td>
-                     </tr>
-                     <tr>
-                         <td></td>
-                         <td align="right"><input type=submit value=Войти style="width:auto; height:auto;"></td>
-                     </tr>
-                </table>
-            </form>*@
                 @if (ViewBag.IsAuthorized)
                 {
                     <a href="/User/LogOff">Выйти</a>
