@@ -68,7 +68,6 @@ namespace UI.Controllers
                 {
                     _userManager.ChangeLogin(model.Id, model.Login);
                     _userManager.ChangeData(model.Id, model.Name, model.Sirname, model.Email, model.Info);
-                    //return Redirect("/UserData/Index");
                     ModelState.AddModelError("","Изменения сохранены");
                     return View();
                 }
@@ -94,7 +93,7 @@ namespace UI.Controllers
             return View("Edit");
         }
 
-        //это не настоящий id, а логин
+        //
         public ActionResult AllProducts(string login)
         {
             if (login !="")
@@ -107,7 +106,7 @@ namespace UI.Controllers
                     IEnumerable<ProductModel> products = pb.BuildIEnumerable(_userManager.GetProducts(user.Id));
                     return View(products);
                 }
-                return Redirect("/");
+                return HttpNotFound();
             }
             return Redirect("/");
         }

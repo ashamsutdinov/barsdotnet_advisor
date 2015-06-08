@@ -45,6 +45,5 @@ namespace UI.Controllers
             IEnumerable<ProductModel> pm=_productBuilder.BuildIEnumerable(_productManager.GetMostPop(amount,from));
             return View(pm); 
         }
-
     }
 }
