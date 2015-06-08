@@ -4,6 +4,7 @@ using System.Text;
 using Advisor.Dal;
 using Advisor.Dal.Domain;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advisor.Data
 {
@@ -119,13 +120,12 @@ namespace Advisor.Data
 
         //найти товары пользователя
 
-        public IEnumerable<Product> GetAllByOwner(int ownerId)
+        public IEnumerable<Product> GetProducts(int userId)
         {
-            return Select(p => p.UserId == ownerId)
-            .OrderByDescending(p => p.DateOfCreate)
-            .ThenByDescending(p => p.Rating);
-            //.Skip(10)
-            //.Take(10);
+            using (var da = new ProductDa())
+            {
+                return da.GetAllByOwner(userId);
+            }
         }
     }
 }

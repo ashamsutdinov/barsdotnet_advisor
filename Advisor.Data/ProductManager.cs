@@ -106,19 +106,12 @@ namespace Advisor.Data
 
        
         //взять самые популярные товары
-        //public IEnumerable<Product> GetMostPop(int count)
-        //{
-        //    using (var da = new ProductDa())
-        //    {
-        //        return da.GetMostPopular(count);
-        //    }
-        //}
-        public IEnumerable<Product> GetMostPopular(int amount, int from)
-        {
-            using (var da = new ProductDa())
-            {
-                return da.GetMostPopular(amount,from);
-            }
-        }
+         public IEnumerable<Product> GetMostPop(int amount,int from)
+         {
+             using (var da = new ProductDa())
+             {
+                 return da.GetMostPopular(amount,from);
+             }
+         }
     }
 }
