@@ -68,7 +68,6 @@ namespace UI.Controllers
                 {
                     _userManager.ChangeLogin(model.Id, model.Login);
                     _userManager.ChangeData(model.Id, model.Name, model.Sirname, model.Email, model.Info);
-                    //return Redirect("/UserData/Index");
                     ModelState.AddModelError("","Изменения сохранены");
                     return View();
                 }
@@ -94,14 +93,20 @@ namespace UI.Controllers
             return View("Edit");
         }
 
-
-        public ActionResult MyProducts()
+        //
+        public ActionResult AllProducts(string login)
         {
-            if (CurrentUser != null)
+            if (login !="")
             {
-                ProductBuilder pb = new ProductBuilder();
-                IEnumerable<ProductModel> products = pb.BuildIEnumerable(_userManager.GetProducts(CurrentUser.Id));
-                return View(products);
+                var user=_userManager.Get(login);
+                //если такой пользователь не существует
+                if (user != null)
+                {
+                    ProductBuilder pb = new ProductBuilder();
+                    IEnumerable<ProductModel> products = pb.BuildIEnumerable(_userManager.GetProducts(user.Id));
+                    return View(products);
+                }
+                return HttpNotFound();
             }
             return Redirect("/");
         }

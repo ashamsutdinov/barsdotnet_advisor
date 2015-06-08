@@ -29,13 +29,13 @@ namespace UI.Controllers
         private readonly IProductPhotoManager _photoManager
             = Services.Factory.Get<IProductPhotoManager>();
 
-
+        //+
         //главная страница продукта
         public ActionResult Index(int? id)
         {
             if (id==null)
             {
-                return HttpNotFound();
+                return Redirect("/");
             }
             var product=_productManager.Get((int)id);
             if (product==null)
@@ -45,7 +45,7 @@ namespace UI.Controllers
             return View(_productBuilder.Build(product));
         }
 
-
+        //+
         //добавление комментария        
         [HttpPost, ActionName("Index")]
         public ActionResult AddComment(ProductModel model,String Comment)
@@ -55,26 +55,28 @@ namespace UI.Controllers
             return Redirect("/ProductData/Index/"+model.Id);
         }
 
-
+        //+
         public ActionResult Comments(int? id)
         {
             if (id==null)
             {
-                return HttpNotFound();
+                return Redirect("/");
             }
-            return View(_commentBuilder.BuildIEnumerable(_commentManager.GetAllByProduct((int)id)));
+            if (_productManager.Get((int)id) != null)
+            {
+                return View(_commentBuilder.BuildIEnumerable(_commentManager.GetAllByProduct((int)id)));
+            }
+            return HttpNotFound();
         }
 
-
-
-
+        //+
         //изменение продукта
         [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id==null)
             {
-                return HttpNotFound();
+                return Redirect("/");
             }
             var product = _productManager.Get((int)id);
             if (product == null)
@@ -86,7 +88,7 @@ namespace UI.Controllers
             return View(model);
         }
 
-        //тут еще нет, собсственно сохранения
+        //+
         [HttpPost]
         public ActionResult Edit(ProductModel model)
         {
@@ -135,6 +137,7 @@ namespace UI.Controllers
             }
         }
 
+
         //потом добавить список изображений
         public FileContentResult GetImage(int productId)
         {
@@ -154,6 +157,7 @@ namespace UI.Controllers
             }
         }
 
+        //-
         [HttpGet]
         public ActionResult Delete(int? id)
         {

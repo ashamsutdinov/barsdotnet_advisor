@@ -144,7 +144,6 @@
     <Compile Include="Builders\IBuilder.cs" />
     <Compile Include="Builders\ProductBuilder.cs" />
     <Compile Include="Builders\UserBuilder.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductDataController.cs" />
@@ -3177,7 +3176,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -3229,7 +3227,7 @@
     <Content Include="Views\Search\Top.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\UserData\MyProducts.cshtml" />
+    <Content Include="Views\UserData\AllProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductData\Comments.cshtml" />
