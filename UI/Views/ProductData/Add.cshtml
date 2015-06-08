@@ -39,21 +39,21 @@
         <tr><td><div class="editor-label">Фотография</div> </td></tr>
         <tr>
             <td align="center" width="100%">
-                @*<div class="editor-field">
-                        {
-                        if (Model.PhotosId.Count==0)
+                <div class="editor-field">
+                        @* 
+                        Вот здесь надо оставить просто if(Model.PhotosId.Count==0)
+                        *@
+                        @if ((Model==null) || (Model.PhotosId==null) || (Model.PhotosId.Count==0))
                         {
                         <b>Нет изображения</b>
                         }
                         else {
-                        <img width="150" height="150" src="Url.Action(" getimage", "ProductData" , new { model.productid })" />
+                         <img width="150" height="150" src="@Url.Action("GetImage", "Product", new { Model.Id })" />
                         }
                             Загрузить фотографию:
                             <input type="file" name="Image" />
-                        }
-                    </div>*@
-                Загрузить фотографию:
-                <input type="file" name="Image" />
+                        
+                </div>
             </td>
         </tr>
         <input type=hidden value=1 name= type>

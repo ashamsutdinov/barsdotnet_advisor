@@ -116,7 +116,7 @@ namespace UI.Controllers
             if (ModelState.IsValid)
             {
                 Product p = _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
-                if (image != null)
+                if ((p!=null) && (image != null))
                 {//если есть изображение, то добавляем его в базу
                     ProductPhoto Photo = new ProductPhoto();
                     Photo.MimeType = image.ContentType;
@@ -126,7 +126,10 @@ namespace UI.Controllers
                     model.PhotosId.Add(Photo.Id);
                     //а также ее id к модели
                 }
-                TempData["message"] = string.Format("{0} has been saved", p.Name);
+                if (p!=null) 
+                    TempData["message"] = string.Format("{0} услуга была сохранена", p.Name);
+                else
+                    TempData["message"] = string.Format("Сохранение невозможно, укажите имеющуюся категорию");
                 return Redirect("/");
             }
             else
