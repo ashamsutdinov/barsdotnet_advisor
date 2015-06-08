@@ -118,13 +118,14 @@ namespace Advisor.Data
         }
 
         //найти товары пользователя
-        public IEnumerable<Product> GetProducts(int userId)
+
+        public IEnumerable<Product> GetAllByOwner(int ownerId)
         {
-            using (var da = new ProductDa())
-            {
-                //IQueryable<Product> Prods = da.Select(p => p.UserId == UserId);
-                return da.GetAllByOwner(userId);
-            }
+            return Select(p => p.UserId == ownerId)
+            .OrderByDescending(p => p.DateOfCreate)
+            .ThenByDescending(p => p.Rating);
+            //.Skip(10)
+            //.Take(10);
         }
     }
 }
