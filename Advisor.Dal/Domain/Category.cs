@@ -15,6 +15,6 @@ namespace Advisor.Dal.Domain
         public virtual string Info { get; set; }
 
         //---
-        public virtual IList<Product> Products { get; set; }
+        //public virtual IList<Product> Products { get; set; }
     }
 }

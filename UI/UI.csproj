@@ -140,6 +140,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Builders\CommentBuilder.cs" />
     <Compile Include="Builders\IBuilder.cs" />
     <Compile Include="Builders\ProductBuilder.cs" />
     <Compile Include="Builders\UserBuilder.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProductPhotosModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
@@ -3228,6 +3230,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\UserData\MyProducts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductData\Comments.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

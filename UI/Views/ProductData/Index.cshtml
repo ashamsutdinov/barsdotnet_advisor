@@ -5,7 +5,8 @@
 }
 
 <h2>Главная страница товара</h2>
-
+@using (Html.BeginForm("Index", "ProductData", FormMethod.Post))
+{ 
     <fieldset>
         @Html.HiddenFor(m => m.Id)
 
@@ -41,7 +42,7 @@
             @Html.DisplayFor(m => m.Category)
         </p>
     </fieldset>
-@{
+
     if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
     { 
         <a href="/ProductData/Add">Редактировать товар</a>
@@ -54,12 +55,10 @@
         
         //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
         {
-            Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
+            @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
             //p><input type="submit" value="Оставить" /></p>
         }
     }
-}
-@{
     //поле для комментариев
     if (ViewBag.IsAuthorized)
     {
@@ -70,9 +69,9 @@
     {
         @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")
     }
-    
-}
-@{
+    { 
+        <p><a href="/ProductData/Comments/@Model.Id">Все отзывы на товар</a></p>
+    }
     //а вот тут должны отображаться уже оставленные комментарии
     //Но их пока нет
     //оставь для них место, ладно?

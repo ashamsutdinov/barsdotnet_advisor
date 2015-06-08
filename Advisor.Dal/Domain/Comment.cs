@@ -12,14 +12,14 @@ namespace Advisor.Dal.Domain
 
         public virtual DateTime DateOfCreate { get; set; }
 
-        public virtual int AuthorId { get; set; }
+        public virtual int UserId { get; set; }
 
         public virtual int ProductId { get; set; }
 
         public virtual string Text { get; set; }
 
         //-----
-        public virtual User Author { get; set; }
-        public virtual Product Product { get; set; }
+        //public virtual User Author { get; set; }
+        //public virtual Product Product { get; set; }
     }
 }

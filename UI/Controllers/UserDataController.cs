@@ -7,7 +7,6 @@ using Advisor.Data;
 using UI.Models;
 using System.Web.Security;
 using UI.Builders;
-using System.Collections.Generic;
 
 namespace UI.Controllers
 {
@@ -18,10 +17,10 @@ namespace UI.Controllers
         private readonly UserBuilder _userBuilder
             =new UserBuilder();
 
-        /*public ActionResult Index()
+        public ActionResult Index()
         {
             return View();
-        }*/
+        }
 
         public ActionResult Register()
         {
@@ -44,7 +43,7 @@ namespace UI.Controllers
                     ModelState.AddModelError("Login", "Введенный логин не уникален");
                     return View();
                 }
-                return Redirect("/UserData/Index");
+                return Redirect("/");
             }
 
             return View();

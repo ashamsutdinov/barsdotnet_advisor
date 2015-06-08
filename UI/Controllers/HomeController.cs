@@ -12,6 +12,7 @@ namespace UI.Controllers
         {
             /*UserManager u = new UserManager();
             u.Register("a", "a", "a", "a", "", "");*/
+
             return View();
         }
     }

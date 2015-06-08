@@ -16,8 +16,8 @@ namespace Advisor.Dal.Mapping
             Property(u => u.ProductId);
 
             //----
-            ManyToOne(x => x.Author, map => map.Column("UserId"));
-            ManyToOne(x => x.Product, map => map.Column("ProductId"));
+            //ManyToOne(x => x.Author, map => map.Column("UserId"));
+            //ManyToOne(x => x.Product, map => map.Column("ProductId"));
         }
     }
 }

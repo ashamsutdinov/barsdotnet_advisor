@@ -18,6 +18,14 @@ namespace UI.Controllers
         private readonly ProductBuilder _productBuilder
             = new ProductBuilder();
  
+        private readonly ICommentManager _commentManager
+            = Services.Factory.Get<ICommentManager>();
+        private readonly CommentBuilder _commentBuilder
+            = new CommentBuilder();
+
+        private readonly IUserManager _userManager
+         = Services.Factory.Get<IUserManager>();
+
         private readonly IProductPhotoManager _photoManager
             = Services.Factory.Get<IProductPhotoManager>();
 
@@ -35,6 +43,26 @@ namespace UI.Controllers
                 return HttpNotFound();
             }
             return View(_productBuilder.Build(product));
+        }
+
+
+        //добавление комментария        
+        [HttpPost, ActionName("Index")]
+        public ActionResult AddComment(ProductModel model,String Comment)
+        {
+            //тут добавляется комментарий
+            _commentManager.Add(CurrentUser.Id, model.Id, Comment);
+            return Redirect("/ProductData/Index/"+model.Id);
+        }
+
+
+        public ActionResult Comments(int? id)
+        {
+            if (id==null)
+            {
+                return HttpNotFound();
+            }
+            return View(_commentBuilder.BuildIEnumerable(_commentManager.GetAllByProduct((int)id)));
         }
 
 

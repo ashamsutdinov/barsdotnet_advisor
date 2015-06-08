@@ -53,7 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryManager.cs" />
+    <Compile Include="CommentManager.cs" />
     <Compile Include="ICategoryManager.cs" />
+    <Compile Include="ICommentManager.cs" />
     <Compile Include="IProductManager.cs" />
     <Compile Include="IProductPhotoManager.cs" />
     <Compile Include="IUserManager.cs" />

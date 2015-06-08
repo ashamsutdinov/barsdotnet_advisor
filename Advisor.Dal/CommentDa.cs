@@ -11,7 +11,8 @@ namespace Advisor.Dal
         public IEnumerable<Comment> GetAllByProduct(int productId)
         {
             return Select(p => p.ProductId == productId)
-                .OrderByDescending(p => p.DateOfCreate);
+                .OrderByDescending(p => p.DateOfCreate)
+                .ToList();
             //.Skip(10)
             //.Take(10);
         }

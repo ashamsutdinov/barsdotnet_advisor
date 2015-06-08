@@ -15,7 +15,7 @@ namespace Advisor.Dal.Mapping
             Property(u => u.Info);
 
             //---
-            Bag(x => x.Products, map => map.Key(km => km.Column("CategoryId")), rel => rel.OneToMany());
+            //Bag(x => x.Products, map => map.Key(km => km.Column("CategoryId")), rel => rel.OneToMany());
         }
     }
 }

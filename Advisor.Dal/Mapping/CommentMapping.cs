@@ -12,13 +12,13 @@ namespace Advisor.Dal.Mapping
             Table("Comments");
             Id(u => u.Id, m => m.Generator(Generators.Identity));
             Property(u => u.DateOfCreate);
-            Property(u => u.AuthorId);
+            Property(u => u.UserId);
             Property(u => u.ProductId);
             Property(u => u.Text);
 
             //----
-            ManyToOne(x => x.Author, map => map.Column("UserId"));
-            ManyToOne(x => x.Product, map => map.Column("ProductId"));
+            //ManyToOne(x => x.Author, map => map.Column("UserId"));
+            //ManyToOne(x => x.Product, map => map.Column("ProductId"));
         }
     }
 }

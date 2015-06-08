@@ -8,9 +8,6 @@ namespace Advisor.Dal
     public class ProductDa:
         Dao<int,Product>
     {
-        /*public IEnumerable<Comment> GetAllComments(int productId)
-        {
-        }*/
 
         public IEnumerable<Product> GetAllByOwner(int ownerId)
         {

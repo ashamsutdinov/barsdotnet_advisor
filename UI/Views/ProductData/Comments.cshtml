@@ -1,0 +1,18 @@
+﻿@using System.Collections.Generic;
+@using UI.Models;
+
+@model IEnumerable<CommentModel>
+    @{
+        ViewBag.Title = "Отзывы";
+    }
+
+    <h2>Отзывы на товар или продукт:</h2>
+    @foreach (CommentModel b in Model)
+    {
+    <tr>
+        <td><p><a href="/UserData/Index/@b.Id">@b.AuthorLogin</a></p></td>
+        <td><p>@b.DateOfCreate</p></td>
+        <td><p>@b.Text</p></td>
+        <td><p></p></td>
+    </tr>
+    }

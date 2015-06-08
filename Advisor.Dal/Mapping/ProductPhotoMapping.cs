@@ -16,7 +16,7 @@ namespace Advisor.Dal.Mapping
             Property(u => u.MimeType);
 
             //--
-            ManyToOne(x => x.Product, map => map.Column("ProductId"));
+            //ManyToOne(x => x.Product, map => map.Column("ProductId"));
         }
     }
 }

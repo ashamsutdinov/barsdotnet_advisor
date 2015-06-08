@@ -64,6 +64,7 @@
     <None Include="Advisor.Database.publish.xml" />
     <None Include="Scripts\CreateCategories.sql" />
     <None Include="Scripts\CreateProducts.sql" />
+    <None Include="Scripts\Script1.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Users.sql" />

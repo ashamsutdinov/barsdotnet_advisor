@@ -21,12 +21,12 @@ namespace Advisor.Dal.Mapping
             Property(u => u.Rating);
 
             //---
-            Bag(x => x.Comments, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
-            Bag(x => x.Ratings, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
-            Bag(x => x.ProductPhotos, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
+            //Bag(x => x.Comments, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
+            //Bag(x => x.Ratings, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
+            //Bag(x => x.ProductPhotos, map => map.Key(km => km.Column("ProductId")), rel => rel.OneToMany());
             
-            ManyToOne(x => x.Category, map => map.Column("CategoryId"));
-            ManyToOne(x => x.User, map => map.Column("UserId"));
+            //ManyToOne(x => x.Category, map => map.Column("CategoryId"));
+            //ManyToOne(x => x.User, map => map.Column("UserId"));
         }
     }
 }
