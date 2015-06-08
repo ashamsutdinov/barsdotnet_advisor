@@ -31,5 +31,12 @@ namespace Advisor.Data
                 return da.Save(pr); 
             }
         }
+        public ProductPhoto Get(int photoId)
+        {
+            using (var da = new ProductPhotoDa())
+            {
+                return da.GetById(photoId);
+            }
+        }
     }
 }

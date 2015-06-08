@@ -144,6 +144,7 @@
     <Compile Include="Builders\IBuilder.cs" />
     <Compile Include="Builders\ProductBuilder.cs" />
     <Compile Include="Builders\UserBuilder.cs" />
+    <Compile Include="Controllers\ProductPhotoController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductDataController.cs" />
@@ -3231,6 +3232,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductData\Comments.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductPhoto\Add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductPhoto\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

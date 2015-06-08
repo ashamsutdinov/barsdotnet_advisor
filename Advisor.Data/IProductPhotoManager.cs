@@ -12,5 +12,6 @@ namespace Advisor.Data
         IQueryable<ProductPhoto> GetPhotos(int productId);
         //взять фотографии
         ProductPhoto Add( byte[] photo, string mimetype, int productId);
+        ProductPhoto Get(int photoId);
     }
 }

@@ -13,5 +13,7 @@ namespace UI.Models
 
         public int ProductId { get; set; }
 
+        public string MimeType { get; set; }
+
     }
 }
