@@ -45,7 +45,7 @@
 
     if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
     { 
-        <a href="/ProductData/Add">Редактировать товар</a>
+        <a href="/ProductData/Edit/@Model.Id">Редактировать товар</a>
     }
     else
     {

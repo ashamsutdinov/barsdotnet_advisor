@@ -127,7 +127,7 @@ namespace UI.Controllers
                     //а также ее id к модели
                 }
                 TempData["message"] = string.Format("{0} has been saved", p.Name);
-                return RedirectToAction("Index");
+                return Redirect("ProductData/Index"+model.Id);
             }
             else
             {//что-то пошло не так
