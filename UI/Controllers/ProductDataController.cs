@@ -37,6 +37,9 @@ namespace UI.Controllers
             return View(_productBuilder.Build(product));
         }
 
+
+
+
         //изменение продукта
         [HttpGet]
         public ActionResult Edit(int? id)
@@ -142,14 +145,6 @@ namespace UI.Controllers
             }
             _productManager.Delete((int)id);
             return RedirectToAction("Index");
-        }
-
-
-        public ActionResult MyProducts()
-        {
-            //или как тут?)
-            //List<Product> prods = _productManager.Get(CurrentUser.Id)
-            return View();
         }
     }
 }

@@ -26,10 +26,7 @@ namespace UI.Controllers
 
 
 
-        //!!!!!!всегдя инициализируется этими значениями, все плохо
-        private const int amount = 2;//можно изменить
-
-
+        private const int amount = 2;//можно изменить(чтобы показать и похвастаться))
 
         //показать самые популярные
         public ActionResult Top(int? id)

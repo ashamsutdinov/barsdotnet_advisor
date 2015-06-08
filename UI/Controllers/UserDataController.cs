@@ -7,6 +7,7 @@ using Advisor.Data;
 using UI.Models;
 using System.Web.Security;
 using UI.Builders;
+using System.Collections.Generic;
 
 namespace UI.Controllers
 {
@@ -17,10 +18,10 @@ namespace UI.Controllers
         private readonly UserBuilder _userBuilder
             =new UserBuilder();
 
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             return View();
-        }
+        }*/
 
         public ActionResult Register()
         {
@@ -92,6 +93,18 @@ namespace UI.Controllers
                 return View("Edit");
             }
             return View("Edit");
+        }
+
+
+        public ActionResult MyProducts()
+        {
+            if (CurrentUser != null)
+            {
+                ProductBuilder pb = new ProductBuilder();
+                IEnumerable<ProductModel> products = pb.BuildIEnumerable(_userManager.GetProducts(CurrentUser.Id));
+                return View(products);
+            }
+            return Redirect("/");
         }
     }
 }

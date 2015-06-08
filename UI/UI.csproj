@@ -3221,13 +3221,13 @@
     <Content Include="Views\ProductData\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ProductData\MyProducts.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Search\Top.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserData\MyProducts.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
