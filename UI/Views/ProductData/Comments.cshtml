@@ -21,11 +21,15 @@
                     foreach (CommentModel b in Model)
                     {
                 <tr><hr width="100%" align="left">
+                   
+                        <td align="left" width="30%">
                     <font color="green">
-                        <td align="left">
-                            <a href="/UserData/Index/@b.Id">@b.AuthorLogin</a>/td>
-                        <td align="right">@b.DateOfCreate</td>
+                                <a href="/UserData/Index/@b.Id">@b.AuthorLogin</a>
                     </font>
+</td>
+                        <td align="left" width="30%"></td>
+                        <td align="right" width="30%"><font color="green">@b.DateOfCreate</font></td>
+                    
                 </tr>
                     <tr>
                     <td>@b.Text</td>

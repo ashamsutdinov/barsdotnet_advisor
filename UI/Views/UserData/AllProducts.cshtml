@@ -12,8 +12,7 @@
             <td width="50%">
                 <h2><font color="green"><center> Все предложения </center></font></h2>
                 <br><br>
-                <table border="0" width="100%" align="center">
-
+                <table border="0" width="100%" align="center" cellpadding="20">
                     @if (Model.Count() == 0)
                     {
                         <p>Не добавлено еще ни одного предложения</p>
@@ -23,7 +22,7 @@
                         foreach (ProductModel b in Model)
                         {
                             <tr>
-                                <td>Название товара</td>
+                                <td>Товар</td>
                                 <td>Категория</td>
                                 <td>Рейтинг</td>
                                 <td>Мин цена</td>

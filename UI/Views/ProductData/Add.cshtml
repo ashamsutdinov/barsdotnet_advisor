@@ -1,4 +1,5 @@
-﻿@model UI.Models.ProductModel
+﻿@using System.Web.Mvc
+@model UI.Models.ProductModel
 @{
     ViewBag.Title = "Добавление товара";
 }
@@ -66,8 +67,8 @@
                     <tr>
                         <td align="center" width="50%"><b>Выберите категорию </b></td>
                         @*<td>@Html.TextBox("Category")</td>*@
-                        <td>@Html.DropDownList("Categories",ViewBag.Categories)</td>
-                        <td>@Html.ValidationMessage("Categories")</td>
+                        <td>@Html.DropDownList("Category",new SelectList(ViewBag.Categories))</td>
+                        <td>@Html.ValidationMessage("Category")</td>
                     </tr>
                     @*<input type=hidden value=1 name= type>*@
                     <tr>

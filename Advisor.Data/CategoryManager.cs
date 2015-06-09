@@ -37,7 +37,7 @@ namespace Advisor.Data
             }
         }
 
-        public IEnumerable<Category> GetAllCategories()
+        public IEnumerable<string> GetAllCategories()
         {
             using (var da=new CategoryDa())
             {

@@ -118,7 +118,7 @@ namespace UI.Controllers
             if (ModelState.IsValid)
             {
                 Product p = _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
-                if ((p!=null) && (image != null))
+                if ((p!=null)) && (image != null))
                 {//если есть изображение, то добавляем его в базу
                     ProductPhoto Photo = new ProductPhoto();
                     Photo.MimeType = image.ContentType;
@@ -138,11 +138,13 @@ namespace UI.Controllers
                     //TempData["message"] = string.Format("Сохранение невозможно, укажите имеющуюся категорию");
                 {
                     ModelState.AddModelError("Categories", "Введенной вами категории не существует");
+                    ViewBag.Categories = _categoryManager.GetAllCategories();
                     return View();
                 }
             }
             else
             {//что-то пошло не так
+                ViewBag.Categories = _categoryManager.GetAllCategories();
                 return View();
             }
         }

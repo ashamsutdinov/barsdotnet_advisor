@@ -22,6 +22,7 @@
                         </td>
                         <td> @Html.DisplayFor(m => m.DateOfCreate)</td>
                     </tr>
+                    <tr><td></td></tr>
                     @if (Model.Rating != 0)
                     {
                         @Html.DisplayFor(m => m.Rating)
@@ -49,40 +50,44 @@
                     </tr>
                 </table>
             </td>
-            <td width="30%">
-
+    <td width="30%">
+        <table border="0" width="100%" align="center">
+            
                 if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
                 {
-                <a href="/ProductData/Edit/@Model.Id">Редактировать товар</a>
+            <tr>
+                <td>
+                <a href="/ProductData/Edit/@Model.Id">Редактировать товар</a></td></tr>
                 }
                 else
                 {
                 @*//поле для оставления оценок
-    //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
-    //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
+            //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
+            //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
 
-    //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
-    {
-    @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
-    //p><input type="submit" value="Оставить" /></p>*@
-        }
-        }
-        @*//поле для комментариев*@
-        if (ViewBag.IsAuthorized)
-        {
-        @Html.TextArea("Comment");
-        <p><input type="submit" value="Оставить отзыв" /></p>
-        }
-        else
-        {
-        @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")
-        }
-        {
-        <p><a href="/ProductData/Comments/@Model.Id">Все отзывы на товар</a></p>
-        }
-        @*/а вот тут должны отображаться уже оставленные комментарии
-        //Но их пока нет
-        //оставь для них место, ладно?*@
-    </td>
+            //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
+            {
+            @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
+            //p><input type="submit" value="Оставить" /></p>*@
+                }
+                }
+                @*//поле для комментариев*@
+                if (ViewBag.IsAuthorized)
+                {
+               <tr><td> @Html.TextArea("Comment");
+                <p><input type="submit" value="Оставить отзыв" /></p></td></tr>
+                }
+                else
+                {
+               <tr><td> @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")</td></tr>
+                }
+                {
+            <tr><td><a href="/ProductData/Comments/@Model.Id">Все отзывы на товар</a></td></tr>
+                }
+                @*/а вот тут должны отображаться уже оставленные комментарии
+            //Но их пока нет
+            //оставь для них место, ладно?*@
+        </table>
+</td>
         }
 </table>
