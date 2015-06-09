@@ -54,8 +54,8 @@
     <td width="20%"></td>
     
 
-            if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
-            {
+                if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
+                {
                 <td width="30%">
         <table border="0" width="100%" align="center">
             <tr>
@@ -64,9 +64,9 @@
                 </td>
             </tr>
             </table></td>
-            }
-            else
-            {
+                }
+                else
+                {
                 
             <tr>
                 <td> <img src="/Content/Images/палец_вверх.jpg" width="70" height="70" onclick='this.src = "/Content/Images/палец_вверх_нажато.png"' /></td>
@@ -76,34 +76,34 @@
                     <img src="/Content/Images/палец_вниз.jpg" width="70" height="70" onclick='this.src = "/Content/Images/палец_вниз_нажато.png"' /></td>
             </tr>
 
-                    @*//поле для оставления оценок
-                    //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
-                    //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
+                @*//поле для оставления оценок
+            //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
+            //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
 
-                    //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
-                    {
-                    @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
-                    //p><input type="submit" value="Оставить" /></p>*@
-                    }
-                    }
-                    @*//поле для комментариев*@
-                    if (ViewBag.IsAuthorized)
-                    {
+            //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
+            {
+            @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
+            //p><input type="submit" value="Оставить" /></p>*@
+                }
+                }
+                @*//поле для комментариев*@
+                if (ViewBag.IsAuthorized)
+                {
             <tr>
                 <td>
                     @Html.TextArea("Comment");
                     <p><input type="submit" value="Оставить отзыв" /></p>
                 </td>
             </tr>
-            }
-            else
-            {
-            <tr><td> @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")</td></tr>
-            }
-            {
+                }
+                else
+                {
+               <tr><td> @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")</td></tr>
+                }
+                {
             <tr><td><a href="/ProductData/Comments/@Model.Id">Все отзывы на товар</a></td></tr>
-            }
-            @*/а вот тут должны отображаться уже оставленные комментарии
+                }
+                @*/а вот тут должны отображаться уже оставленные комментарии
             //Но их пока нет
             //оставь для них место, ладно?*@
         </table>

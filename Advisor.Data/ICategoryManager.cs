@@ -11,5 +11,6 @@ namespace Advisor.Data
     {
         Category Get(int id);
         Category Add(string name, string info);
+        IEnumerable<string> GetAllCategories();
     }
 }

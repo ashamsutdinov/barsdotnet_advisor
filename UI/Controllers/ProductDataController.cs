@@ -28,7 +28,8 @@ namespace UI.Controllers
 
         private readonly IProductPhotoManager _photoManager
             = Services.Factory.Get<IProductPhotoManager>();
-
+        private readonly ICategoryManager _categoryManager
+        = Services.Factory.Get<ICategoryManager>();
 
         //главная страница продукта
         public ActionResult Index(int? id)
@@ -107,6 +108,7 @@ namespace UI.Controllers
                 //поэтому просто выкинем человека на главную Х)
                 return Redirect("/");
             }
+            ViewBag.Categories = _categoryManager.GetAllCategories();
             return View();
         }
 
@@ -116,7 +118,7 @@ namespace UI.Controllers
             if (ModelState.IsValid)
             {
                 Product p = _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
-                if ((p!=null) && (image != null))
+                /*if ((p!=null) && (image != null))
                 {//если есть изображение, то добавляем его в базу
                     ProductPhoto Photo = new ProductPhoto();
                     Photo.MimeType = image.ContentType;
@@ -125,21 +127,31 @@ namespace UI.Controllers
                     Photo=_photoManager.Add(Photo.Photo, Photo.MimeType, p.Id);
                     model.PhotosId.Add(Photo.Id);
                     //а также ее id к модели
-                }
+                }*/
+                //проверка поскольку категория может оказаться не той.
                 if (p!=null) 
+                {
                     TempData["message"] = string.Format("{0} услуга была сохранена", p.Name);
+                    return Redirect("/");
+                }
+                //странно, что если ты не указал категорию верно, тебя сразу выкидывают на главню
                 else
-                    TempData["message"] = string.Format("Сохранение невозможно, укажите имеющуюся категорию");
-                return Redirect("/");
+                    //TempData["message"] = string.Format("Сохранение невозможно, укажите имеющуюся категорию");
+                {
+                    ModelState.AddModelError("Categories", "Введенной вами категории не существует");
+                    ViewBag.Categories = _categoryManager.GetAllCategories();
+                    return View();
+                }
             }
             else
             {//что-то пошло не так
+                ViewBag.Categories = _categoryManager.GetAllCategories();
                 return View();
             }
         }
 
-        //потом добавить список изображений
-        public FileContentResult GetImage(int productId)
+        //это уже не нужно
+     /*   public FileContentResult GetImage(int productId)
         {
             Product prod = _productManager.Get(productId);
             List<FileContentResult> ListPhotos = new List<FileContentResult>();
@@ -155,7 +167,7 @@ namespace UI.Controllers
             {
                 return null;
             }
-        }
+        }*/
 
         [HttpGet]
         public ActionResult Delete(int? id)
