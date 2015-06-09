@@ -19,7 +19,6 @@ namespace UI.Models
         [Required(ErrorMessage = "Напишите что-нибудь в отзыве")]
         public string Text { get; set; }
 
-        [Required(ErrorMessage = "Поставьте оценку")]
         public int Rating { get; set; }
 
     }

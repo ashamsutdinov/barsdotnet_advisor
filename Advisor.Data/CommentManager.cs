@@ -34,5 +34,13 @@ namespace Advisor.Data
                 return da.GetAllByProduct(productId);
             }
         }
+        public Comment Get(int AuthorId, int ProductId)
+        {
+            using (CommentDa da = new CommentDa())
+            {
+                return da.Select(p=>(p.ProductId==ProductId && p.UserId==AuthorId))
+                    .FirstOrDefault();
+            }
+        }
     }
 }

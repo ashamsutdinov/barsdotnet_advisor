@@ -9,6 +9,7 @@ namespace Advisor.Data
 {
     public interface ICommentManager
     {
+        Comment Get(int AuthorId, int ProductId);
         Comment Add(int AuthorId, int ProductId, string Text);
         IEnumerable<Comment> GetAllByProduct(int productId);
     }

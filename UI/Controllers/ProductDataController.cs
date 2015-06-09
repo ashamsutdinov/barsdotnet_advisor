@@ -30,6 +30,8 @@ namespace UI.Controllers
             = Services.Factory.Get<IProductPhotoManager>();
         private readonly ICategoryManager _categoryManager
         = Services.Factory.Get<ICategoryManager>();
+        private readonly IRatingManager _ratingManager
+       = Services.Factory.Get<IRatingManager>();
 
         //главная страница продукта
         public ActionResult Index(int? id)
@@ -49,12 +51,22 @@ namespace UI.Controllers
 
         //добавление комментария        
         [HttpPost, ActionName("Index")]
-        public ActionResult AddComment(ProductModel model,String Comment)
+        public ActionResult AddComment(ProductModel model,String Comment,int? Rating)
         {
             //тут добавляется комментарий
+            if (Comment == "")
+            {
+                ModelState.AddModelError("", "Отзыв не может быть пустым");
+                return View(model);
+            }
+            if (Rating==null)
+            {
+                ModelState.AddModelError("", "Поставьте оценку предложению");
+                return View(model);
+            }
             _commentManager.Add(CurrentUser.Id, model.Id, Comment);
-
-            return Redirect("/ProductData/Index/"+model.Id);
+            _ratingManager.Add(CurrentUser.Id, model.Id, (int)Rating);
+            return Redirect("/ProductData/Index/" + model.Id);
         }
 
 

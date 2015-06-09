@@ -1,4 +1,5 @@
 ﻿@using System.Web.Mvc
+@using Advisor.Data;
 @model UI.Models.ProductModel
 
 @{
@@ -85,11 +86,15 @@
                 @*//поле для комментариев*@
                 @if (ViewBag.IsAuthorized)
                 {
-            
+                    ICommentManager cm=Services.Factory.Get<ICommentManager>();
+                    if (cm.Get(ViewBag.UserId,Model.Id)==null)
+                    { 
+                    @Html.ValidationSummary()
                     @Html.TextArea("Comment");
                     @Html.DropDownList("Rating", new SelectList(new int[] { 1, 2, 3, 4,5 }))
                     <p><input type="submit" value="Оставить отзыв" /></p>
-                
+                }
+                @Html.Display("Вы уже оставляли отзыв на товар")
                 }
                 else
                 {

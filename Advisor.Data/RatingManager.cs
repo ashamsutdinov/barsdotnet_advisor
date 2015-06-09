@@ -38,5 +38,13 @@ namespace Advisor.Data
                 return da.Save(rating);
             }
         }
+        public Rating Get(int AuthorId, int ProductId)
+        {
+            using (RatingDa da = new RatingDa())
+            {
+                return da.Select(p => ((p.ProductId == ProductId) && (p.UserId == AuthorId)))
+                    .FirstOrDefault();
+            }
+        }
     }
 }

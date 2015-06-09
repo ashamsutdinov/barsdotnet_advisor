@@ -28,7 +28,7 @@ namespace UI.Controllers
                     new GenericIdentity(id.ToString()), new string[] { });
                 ViewBag.IsAuthorized = true;
                 ViewBag.Login = CurrentUser.Login;
-                //ViewBag.UserId = CurrentUser.Id;
+                ViewBag.UserId = CurrentUser.Id;
             }
             catch
             {

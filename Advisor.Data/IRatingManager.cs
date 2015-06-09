@@ -10,5 +10,6 @@ namespace Advisor.Data
     public interface IRatingManager
     {
         Rating Add(int UserId, int ProductId, int Value);
+        Rating Get(int AuthorId, int ProductId);
     }
 }
