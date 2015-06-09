@@ -15,7 +15,7 @@
     foreach (CommentModel b in Model)
     {
     <tr>
-        <td><p><a href="/UserData/Index/@b.Id">@b.AuthorLogin</a></p></td>
+        <td><p><a href="/UserData/Index/?login=@b.AuthorLogin">@b.AuthorLogin</a></p></td>
         <td><p>@b.DateOfCreate</p></td>
         <td><p>@b.Text</p></td>
         <td><p></p></td>

@@ -40,7 +40,8 @@
                     { <a href="/UserData/Register">Регистрация</a>  } |
                     @if (ViewBag.IsAuthorized)
                     { <a href="/UserData/AllProducts/?login=@ViewBag.Login"> Мои товары</a> 
-                     <a href="/ProductData/Add">| Добавить предложение</a>}
+                     <a href="/ProductData/Add">| Добавить предложение</a>
+                    <a href="/UserData/Index/?login=@ViewBag.Login">| Мой кабинет</a>}
             <td bgcolor="ddffgg" width="25%" height="0,02">
                 @if (ViewBag.IsAuthorized)
                 {

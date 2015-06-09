@@ -17,9 +17,20 @@ namespace UI.Controllers
         private readonly UserBuilder _userBuilder
             =new UserBuilder();
 
-        public ActionResult Index()
+
+        public ActionResult Index(string login)
         {
-            return View();
+            if (login != "")
+            {
+                var user = _userManager.Get(login);
+                //если такой пользователь не существует
+                if (user != null)
+                {
+                    return View(_userBuilder.Build(user));
+                }
+                return HttpNotFound();
+            }
+            return Redirect("/");
         }
 
         public ActionResult Register()
