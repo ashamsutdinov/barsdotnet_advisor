@@ -3,11 +3,45 @@
 @{
     ViewBag.Title = "Персональная страница";
 }
+<br>
+<table>
+    <tr>
+        <td width="25%"></td>
+        <td width="50%">
+            <h2><font color="green"><center> Персональная страница</center></font></h2>
+            <br><br>
+            <table border="0" width="100%" align="center" cellpadding="20">
+                <tr>
+                    <td>Ваш логин</td>
+                    <td>@Html.DisplayFor(m => m.Login)</td>
+                </tr>
+                <tr>
+                    <td>Ваше имя</td>
+                    <td>
+                        @Html.DisplayFor(m => m.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ваша фамилия</td>
+                    <td>
+                        @Html.DisplayFor(m => m.Sirname)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Информация о вас</td>
+                    <td>
+                        @Html.DisplayFor(m => m.Info)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/UserData/AllProducts/?login=@Model.Login">К предложениям пользователя</a>
+                    </td>
+                </tr>
+                </table>
 
-<h2>Персональная страница</h2>
-@Html.DisplayFor(m => m.Login)
-@Html.DisplayFor(m => m.Name)
-@Html.DisplayFor(m => m.Sirname)
-@Html.DisplayFor(m => m.Info)
-<a href="/UserData/AllProducts/?login=@Model.Login">К предложениям пользователя</a>
-
+                <td width="20%">
+                    <img src="/Content/Images/who.jpg" width="150" height="150" align="right">
+                </td>
+    </tr>
+</table>
