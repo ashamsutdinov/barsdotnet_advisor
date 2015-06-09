@@ -42,6 +42,7 @@
                     <tr>
                         <td>                @Html.LabelFor(m => m.MaxValue, "Максимальная цена")            </td>
                         <td>             @Html.DisplayFor(m => m.MaxValue)                               </td>
+                    </tr>
                     <tr>
                         <td> @Html.LabelFor(m => m.Category, "Категория")</td>
                         <td>@Html.DisplayFor(m => m.Category)</td>
@@ -56,17 +57,17 @@
                 }
                 else
                 {
-                //поле для оставления оценок
-                //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
-                //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
+                @*//поле для оставления оценок
+    //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
+    //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
 
-                //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
-                {
-                @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
-                //p><input type="submit" value="Оставить" /></p>
+    //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
+    {
+    @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
+    //p><input type="submit" value="Оставить" /></p>*@
         }
         }
-        //поле для комментариев
+        @*//поле для комментариев*@
         if (ViewBag.IsAuthorized)
         {
         @Html.TextArea("Comment");
@@ -79,9 +80,9 @@
         {
         <p><a href="/ProductData/Comments/@Model.Id">Все отзывы на товар</a></p>
         }
-        //а вот тут должны отображаться уже оставленные комментарии
+        @*/а вот тут должны отображаться уже оставленные комментарии
         //Но их пока нет
-        //оставь для них место, ладно?
-        }
+        //оставь для них место, ладно?*@
     </td>
+        }
 </table>

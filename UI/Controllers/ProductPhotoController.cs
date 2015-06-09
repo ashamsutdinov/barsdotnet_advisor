@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UI.Models;
-using ImageDbApp.Models;
+//using ImageDbApp.Models;
 using System.IO;
 using System.Web.Security;
 using Advisor.Dal.Domain;
@@ -63,7 +63,7 @@ namespace UI.Controllers
                     return RedirectToAction("Index");
                 }
                 else
-                    Redirect("/");
+                    return Redirect("/");
             }
             else
               return View();
