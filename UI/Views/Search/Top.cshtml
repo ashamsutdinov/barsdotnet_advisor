@@ -34,12 +34,13 @@
                         }
                         if (ViewBag.page > 1)
                         {
-                            <a href="/Search/Top/@(ViewBag.page-1)">Предыдущая страница</a>
+                           <tr><td> <a href="/Search/Top/@(ViewBag.page-1)">Предыдущая страница</a></td></tr>
                         }
-                        <a href="/Search/Top/@(ViewBag.page+1)">Следующая страница</a>
+                         <tr><td><a href="/Search/Top/@(ViewBag.page+1)">Следующая страница</a></td></tr>
                     }
+                    </table>
                     <td width="20%">
 
-                        <img src="/Content/Images/1place.jpg" width="120" height="120" align="right">
+                        <img src="/Content/Images/1place.jpg" width="150" height="150" align="right">
                     </td>
             </tr></table>
