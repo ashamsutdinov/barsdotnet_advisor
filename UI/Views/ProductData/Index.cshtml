@@ -3,77 +3,85 @@
 @{
     ViewBag.Title = "Главная страница товара";
 }
+<br>
+<table>
+    <tr>
 
-<h2>Главная страница товара</h2>
-@using (Html.BeginForm("Index", "ProductData", FormMethod.Post))
-{ 
-    <fieldset>
-        @Html.HiddenFor(m => m.Id)
-
-        <a href="/UserData/Index/?login=@Model.UserLogin">@Model.UserLogin</a>
-
-        @Html.DisplayFor(m => m.DateOfCreate)
-        @if (Model.Rating!=0)
-        { 
-            @Html.DisplayFor(m => m.Rating)
-        }
-            <p>
-            @Html.LabelFor(m => m.Name, "Название товара")
-            <br />
-            @Html.DisplayFor(m => m.Name)
-        </p>
-        <p>
-            @Html.LabelFor(m => m.Info, "Информация")
-            <br />
-            @Html.DisplayFor(m => m.Info)
-        </p>
-        <p>
-            @Html.LabelFor(m => m.MinValue, "Минимальная цена")
-            <br />
-            @Html.DisplayFor(m => m.MinValue)
-        </p>
-        <p>
-            @Html.LabelFor(m => m.MaxValue, "Максимальная цена")
-            <br />
-            @Html.DisplayFor(m => m.MaxValue)
-        </p>
-        <p>
-            @Html.LabelFor(m => m.Category, "Категория")
-            <br />
-            @Html.DisplayFor(m => m.Category)
-        </p>
-    </fieldset>
-
-    if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
-    { 
-        <a href="/ProductData/Edit/@Model.Id">Редактировать товар</a>
-    }
-    else
-    {
-        //поле для оставления оценок
-        //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
-        //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
-        
-        //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
+        @using (Html.BeginForm("Index", "ProductData", FormMethod.Post))
         {
-            @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
-            //p><input type="submit" value="Оставить" /></p>
+        <td width="20%"></td>
+            <td width="50%">
+                <h2><font color="green"><center> Главная страница товара </center></font></h2>
+                <br><br>
+                <table border="0" width="100%" align="center">
+                    <tr>
+
+                        <td>
+                            @Html.HiddenFor(m => m.Id)
+                            <a href="/UserData/Index/?login=@Model.UserLogin">@Model.UserLogin</a>
+                        </td>
+                        <td> @Html.DisplayFor(m => m.DateOfCreate)</td>
+                    </tr>
+                    @if (Model.Rating != 0)
+                    {
+                        @Html.DisplayFor(m => m.Rating)
+                    }
+                    <tr>
+                        <td> @Html.LabelFor(m => m.Name, "Название товара")</td>
+                        <td>@Html.DisplayFor(m => m.Name)</td>
+                    </tr>
+                    <tr>
+                        <td>                    @Html.LabelFor(m => m.Info, "Информация")                    </td>
+                        <td>                @Html.DisplayFor(m => m.Info)                </td>
+                    </tr>
+
+                    <tr>
+                        <td>             @Html.LabelFor(m => m.MinValue, "Минимальная цена")                    </td>
+                        <td>             @Html.DisplayFor(m => m.MinValue)                </td>
+                    </tr>
+                    <tr>
+                        <td>                @Html.LabelFor(m => m.MaxValue, "Максимальная цена")            </td>
+                        <td>             @Html.DisplayFor(m => m.MaxValue)                               </td>
+                    <tr>
+                        <td> @Html.LabelFor(m => m.Category, "Категория")</td>
+                        <td>@Html.DisplayFor(m => m.Category)</td>
+                    </tr>
+                </table>
+            </td>
+            <td width="30%">
+
+                if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
+                {
+                <a href="/ProductData/Edit/@Model.Id">Редактировать товар</a>
+                }
+                else
+                {
+                //поле для оставления оценок
+                //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
+                //а еще как-то нужно сделать так, чтобы ты не могу голосовать больше 1го раза
+
+                //using (Html.BeginForm("Edit", "ProductData", FormMethod.Post))
+                {
+                @Html.TextBox("Rating");//пусть пока это, тут должна быть оценка
+                //p><input type="submit" value="Оставить" /></p>
         }
-    }
-    //поле для комментариев
-    if (ViewBag.IsAuthorized)
-    {
+        }
+        //поле для комментариев
+        if (ViewBag.IsAuthorized)
+        {
         @Html.TextArea("Comment");
         <p><input type="submit" value="Оставить отзыв" /></p>
-    }
-    else
-    {
+        }
+        else
+        {
         @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")
-    }
-    { 
+        }
+        {
         <p><a href="/ProductData/Comments/@Model.Id">Все отзывы на товар</a></p>
-    }
-    //а вот тут должны отображаться уже оставленные комментарии
-    //Но их пока нет
-    //оставь для них место, ладно?
-}
+        }
+        //а вот тут должны отображаться уже оставленные комментарии
+        //Но их пока нет
+        //оставь для них место, ладно?
+        }
+    </td>
+</table>
