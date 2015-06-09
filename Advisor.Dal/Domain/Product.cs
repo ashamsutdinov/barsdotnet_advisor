@@ -24,7 +24,7 @@ namespace Advisor.Dal.Domain
 
         public virtual int CategoryId { get; set; }
 
-        public virtual int Rating { get; set; }
+        public virtual double Rating { get; set; }
 
         //----
         //public virtual IList<Comment> Comments { get; set; }

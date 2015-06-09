@@ -1,4 +1,5 @@
-﻿@model UI.Models.ProductModel
+﻿@using System.Web.Mvc
+@model UI.Models.ProductModel
 
 @{
     ViewBag.Title = "Главная страница товара";
@@ -86,12 +87,14 @@
             //p><input type="submit" value="Оставить" /></p>*@
                 }
                 }
+
                 @*//поле для комментариев*@
-                if (ViewBag.IsAuthorized)
+                @if (ViewBag.IsAuthorized)
                 {
             <tr>
                 <td>
                     @Html.TextArea("Comment");
+                    @Html.DropDownList("Rating", new SelectList(new int[] { 1, 2, 3, 4,5 }))
                     <p><input type="submit" value="Оставить отзыв" /></p>
                 </td>
             </tr>

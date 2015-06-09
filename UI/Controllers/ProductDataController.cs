@@ -53,6 +53,7 @@ namespace UI.Controllers
         {
             //тут добавляется комментарий
             _commentManager.Add(CurrentUser.Id, model.Id, Comment);
+
             return Redirect("/ProductData/Index/"+model.Id);
         }
 

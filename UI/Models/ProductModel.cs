@@ -28,7 +28,7 @@ namespace UI.Models
         [Required(ErrorMessage = "Укажите категорию")]
         public string Category { get; set; }
 
-        public int Rating { get; set; }
+        public double Rating { get; set; }
 
         public List<int> PhotosId {get;set;}//ссылки на фото
     }
