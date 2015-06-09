@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UI.Models;
-//using ImageDbApp.Models;
 using System.IO;
 using System.Web.Security;
 using Advisor.Dal.Domain;
@@ -19,30 +18,39 @@ namespace UI.Controllers
         private readonly IProductPhotoManager _photoManager
             = Services.Factory.Get<IProductPhotoManager>();
 
-        public ActionResult Index(int? id)
-        {
-            if (id == null)
+        public ActionResult Index(int? productid)
+        {//показать фото товара по заданному id
+            if (productid == null)
             {
                 return HttpNotFound();
             }
-            var product = _photoManager.Get((int)id);
-            if (product == null)
+            else
             {
-                return HttpNotFound();
+                Product pr = _productManager.Get((int)productid);
+                if (pr == null)
+                {
+                    return HttpNotFound();
+                }
+                else
+                    return View(_photoManager.GetPhotos(pr.Id));
             }
-            return View();//здесь дописать билдер потом
         }
         //добавить фото
         [HttpPost]
         public ActionResult Add(int? productid)
         {
-            Product pr = _productManager.Get(productid.Value);
-            //не понимаю почему ругается на просто productid
-            if ((pr== null) || (pr.UserId!=CurrentUser.Id))
-            {//если нет такого товара, или это не его товар, то выкинуть!
+            if (productid == null)
                 return Redirect("/");
+            else
+            {
+                Product pr = _productManager.Get(productid.Value);
+                
+                if ((pr == null) || (pr.UserId != CurrentUser.Id))
+                {//если нет такого товара, или это не его товар, то выкинуть!
+                    return Redirect("/");
+                }
+                return View();
             }
-            return View();
         }
         public ActionResult Add(int? productid, ProductPhotosModel model, HttpPostedFileBase image)
         {

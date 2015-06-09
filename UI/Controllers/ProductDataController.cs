@@ -84,6 +84,7 @@ namespace UI.Controllers
             }
             
             ProductModel model = _productBuilder.Build(product);
+            ViewBag.Categories = _categoryManager.GetAllCategories();//добавляем категории
             return View(model);
         }
 
@@ -96,6 +97,7 @@ namespace UI.Controllers
                 _productManager.SaveChanges(model.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
                 return Redirect("/");
             }
+            ViewBag.Categories = _categoryManager.GetAllCategories();
             return View();
         }
 

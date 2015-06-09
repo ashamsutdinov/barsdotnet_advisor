@@ -10,13 +10,12 @@ namespace Advisor.Data
 {
     public class ProductPhotoManager:IProductPhotoManager
     {
-        public IQueryable<ProductPhoto> GetPhotos(int productId)
+        public IEnumerable<ProductPhoto> GetPhotos(int productId)
         {       
             //взять фотографии
             using (var da = new ProductPhotoDa())
-            {
-                IQueryable <ProductPhoto> Photos= da.Select(p=>p.ProductId==productId);
-                return Photos;
+            {     
+                return da.Select(p => p.ProductId == productId);
             }
 
         }

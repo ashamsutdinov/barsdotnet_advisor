@@ -10,41 +10,7 @@
         {
 
             @Html.ValidationSummary(true)
-            <td width="30%">
-                <table border="0" width="100%" align="center">
-                    <tr>
-                        @*как передать параметр?!*@
-                        <td><input type="button" value="Загрузить" onclick="location.href = '/ProductPhoto/Add';" /></td>
-                        <td><div class="editor-label">Фотографии</div> </td>
-                    </tr>
-                    <tr>
-                        <td align="center" width="100%">
-                            @*<div class="editor-field">
-                                
-                                    Вот здесь надо оставить просто if(Model.PhotosId.Count==0)
-                                
-                                @if ((Model == null) || (Model.PhotosId == null) || (Model.PhotosId.Count == 0))
-                                {
-                                    <b>Нет изображения</b>
-                                }
-                                else
-                                {
-                                    <img width="150" height="150" src="@Url.Action("GetImage", "Product", new { Model.Id })" />
-                                }
-                                Загрузить фотографию:
-                                <input type="file" name="Image" />
-
-                            </div>
-                            *@
-                        </td>
-                    </tr>
-
-
-                </table>
-            </td>
-
-
-            <td width="50%">
+            <td width="100%">
 
                 <h2><font color="green"><center> Добавление нового товара </center></font></h2>
                 <br>
@@ -72,14 +38,22 @@
                         @*<td>@Html.TextBox("Category")</td>*@
                         <td>@Html.DropDownList("Category",new SelectList(ViewBag.Categories))</td>
                         <td>@Html.ValidationMessage("Category")</td>
+                        
                     </tr>
                     @*<input type=hidden value=1 name= type>*@
+                    
                     <tr>
-                        <td>
-                            <input type=submit value="Добавить услугу">
+                        <td align ="center" width="100%">
+                          <br />  <input type=submit value="Добавить предложение">
                         </td>
                     </tr>
-                    }
+                    <tr>
+                       <td align="center" width="100%">
+                          <br />  <a>*Добавить фото к предложению можно при редактировании </a>
+
+                        </td>
+                    </tr>
+                    
                 </table>
             </td>
             <td width="20%"></td>
