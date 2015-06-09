@@ -19,12 +19,12 @@ namespace Advisor.Data
             }
 
         }
-        public ProductPhoto Add(byte[] photo, string mimetype, int productId)
+        public ProductPhoto Add(byte[] photo, string mimetypephoto, int productId)
         {
             using (var da = new ProductPhotoDa())
             {
                 ProductPhoto pr=new ProductPhoto();
-                pr.MimeType = mimetype;
+                pr.MimeTypePhoto = mimetypephoto;
                 pr.Photo = photo;
                 pr.ProductId = productId;
                 return da.Save(pr); 

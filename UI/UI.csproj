@@ -156,7 +156,7 @@
     </Compile>
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\ProductPhotosModel.cs" />
+    <Compile Include="Models\ProductPhotoModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +165,7 @@
     <Content Include="Content\Images\1place.jpg" />
     <Content Include="Content\Images\fallout.png" />
     <Content Include="Content\Images\blocnot.jpg" />
+    <Content Include="Content\Images\who.jpg" />
     <Content Include="Content\Images\палец_вверх.jpg" />
     <Content Include="Content\Images\палец_вверх_нажато.png" />
     <Content Include="Content\Images\палец_вниз.jpg" />

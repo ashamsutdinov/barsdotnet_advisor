@@ -17,16 +17,16 @@ namespace UI.Controllers
             = Services.Factory.Get<IProductManager>();
         private readonly IProductPhotoManager _photoManager
             = Services.Factory.Get<IProductPhotoManager>();
-
-        public ActionResult Index(int? productid)
+        
+        public ActionResult Index(int? id)
         {//показать фото товара по заданному id
-            if (productid == null)
+            if (id == null)
             {
                 return HttpNotFound();
             }
             else
             {
-                Product pr = _productManager.Get((int)productid);
+                Product pr = _productManager.Get((int)id);
                 if (pr == null)
                 {
                     return HttpNotFound();
@@ -36,50 +36,53 @@ namespace UI.Controllers
             }
         }
         //добавить фото
-        [HttpPost]
-        public ActionResult Add(int? productid)
+        
+        public ActionResult Add(int? id)
         {
-            if (productid == null)
+            if (id == null)
                 return Redirect("/");
             else
             {
-                Product pr = _productManager.Get(productid.Value);
-                
-                if ((pr == null) || (pr.UserId != CurrentUser.Id))
+                Product pr = _productManager.Get((int)id);
+
+                if ((pr == null) || (CurrentUser == null)||(pr.UserId != CurrentUser.Id))
                 {//если нет такого товара, или это не его товар, то выкинуть!
                     return Redirect("/");
                 }
-                return View();
+                else
+                {
+                    ProductPhotoModel model=new ProductPhotoModel();
+                    model.ProductId = (int)id;
+                    return View(model);
+                }
+                
             }
         }
-        public ActionResult Add(int? productid, ProductPhotosModel model, HttpPostedFileBase image)
-        {
-            //а если null?!
-            if (productid == null)
-                return Redirect("/");
-            else
-            {
-                Product pr = _productManager.Get(productid.Value);
-                if ((pr == null) || (pr.UserId != CurrentUser.Id))
+        [HttpPost]
+        public ActionResult Add(ProductPhotoModel model, HttpPostedFileBase image)
+        {            
+                if (ModelState.IsValid && image != null)
                 {
-                    if (ModelState.IsValid && image != null)
+                    /*byte[] imageData = null;
+                    using (var binaryReader = new BinaryReader(image.InputStream))
                     {
-                        byte[] imageData = null;
-                        model.MimeType = image.ContentType;
-                        model.Photo = new byte[image.ContentLength];
-                        image.InputStream.Read(model.Photo, 0, image.ContentLength);
-                        model.Photo = imageData;
-                        _photoManager.Add(model.Photo, model.MimeType, productid.Value);
-
-                        TempData["message"] = string.Format("фото услуги было сохранено");
-                        return RedirectToAction("Index");
+                        imageData = binaryReader.ReadBytes(image.ContentLength);
                     }
-                    else
-                        return Redirect("/");
+                    model.MimeTypePhoto = image.ContentType;
+                    model.Photo = imageData;
+                    
+                    */
+                    model.MimeTypePhoto = image.ContentType;
+                    model.Photo = new byte[image.ContentLength];
+                    image.InputStream.Read(model.Photo, 0, image.ContentLength);
+
+                    _photoManager.Add(model.Photo, model.MimeTypePhoto, model.Id);
+                    
+                    TempData["message"] = string.Format("фото услуги было сохранено");
+                    return RedirectToAction("Index");
                 }
                 else
-                    return View();
-            }
+                    return View(model);
             
         }
     }

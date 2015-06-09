@@ -1,9 +1,9 @@
-﻿@model UI.Models.ProductPhotosModel
+﻿@model UI.Models.ProductPhotoModel
 @{
     ViewBag.Title = "Добавление фотографии товара";
 }
 
-    @using (Html.BeginForm("Add", "ProductData", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Add", "ProductPhoto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
     <fieldset>
@@ -18,8 +18,9 @@
             <input type="submit" value="Добавить" />
         </p>
     </fieldset>
-}
+
  
 <div> @*А куда возвращаться-то?!*@
-    <a href="/ProductData/Add/@Model.ProductId">Вернуться к добавлению товара</a> 
+    <a href="/ProductData/Edit/@Model.ProductId">Вернуться к добавлению товара</a> 
 </div>
+}

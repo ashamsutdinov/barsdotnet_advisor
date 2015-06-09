@@ -39,6 +39,14 @@
             @*Html.EditorFor(m => m.Category)*@
             @Html.DropDownList("Category", new SelectList(ViewBag.Categories));
         </p>
+        <p>
+            <a href="/ProductPhoto/Add/@Model.Id">Добавить фото</a> 
+            <br />
+        </p>
+        <p>
+            <a href="/ProductPhoto/Index/@Model.Id">Посмотреть фото</a> 
+            <br />
+        </p>
         <p><input type="submit" value="Сохранить изменения" /></p>
     </fieldset>
 }
