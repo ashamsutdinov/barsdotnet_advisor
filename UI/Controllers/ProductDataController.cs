@@ -116,7 +116,7 @@ namespace UI.Controllers
             if (ModelState.IsValid)
             {
                 Product p = _productManager.Add(CurrentUser.Id, model.Name, model.Info, model.MinValue, model.MaxValue, model.Category);
-                if ((p!=null) && (image != null))
+                /*if ((p!=null) && (image != null))
                 {//если есть изображение, то добавляем его в базу
                     ProductPhoto Photo = new ProductPhoto();
                     Photo.MimeType = image.ContentType;
@@ -125,7 +125,8 @@ namespace UI.Controllers
                     Photo=_photoManager.Add(Photo.Photo, Photo.MimeType, p.Id);
                     model.PhotosId.Add(Photo.Id);
                     //а также ее id к модели
-                }
+                }*/
+                //проверка поскольку категория может оказаться не той.
                 if (p!=null) 
                     TempData["message"] = string.Format("{0} услуга была сохранена", p.Name);
                 else
@@ -138,8 +139,8 @@ namespace UI.Controllers
             }
         }
 
-        //потом добавить список изображений
-        public FileContentResult GetImage(int productId)
+        //это уже не нужно
+     /*   public FileContentResult GetImage(int productId)
         {
             Product prod = _productManager.Get(productId);
             List<FileContentResult> ListPhotos = new List<FileContentResult>();
@@ -155,7 +156,7 @@ namespace UI.Controllers
             {
                 return null;
             }
-        }
+        }*/
 
         [HttpGet]
         public ActionResult Delete(int? id)

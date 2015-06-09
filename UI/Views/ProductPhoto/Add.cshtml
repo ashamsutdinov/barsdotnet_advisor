@@ -2,51 +2,24 @@
 @{
     ViewBag.Title = "Добавление фотографии товара";
 }
-<br>
-<table>
-    <tr>
-    @using (Html.BeginForm("Add", "ProductPhoto", FormMethod.Post))
-    {
-             
-        @Html.ValidationSummary(true)
-             <td width="80%">
-                 <table border="0" width="100%" align="center">
-                     <tr>
-                         <td><div class="editor-label">Фотография</div> </td>
-                     </tr>
-                     <tr>
-                         <td align="center" width="100%">
-                             <div class="editor-field">
-                        @* 
-                        Вот здесь надо оставить просто if(Model.PhotosId.Count==0)
-                        *@
-                        @if ((Model==null) || (Model.PhotosId==null) || (Model.PhotosId.Count==0))
-                        {
-                        <b>Нет изображения</b>
-                        }
-                        else {
-                         <img width="150" height="150" src="@Url.Action("GetImage", "Product", new { Model.Id })" />
-                        }
-                            Загрузить фотографию:
-                            <input type="file" name="Image" />
-                        
-                            </div>
-                         </td>
-                     </tr>
 
-
-                 </table></td>
-            
-  
-    <
-        @*<input type=hidden value=1 name= type>*@
-        <tr>
-            <td>
-                <input type=submit value="Добавить фото">
-            </td>
-        </tr>
-        }
-    </table>
-    </td>
-    <td width="20%"></td>
-}    
+    @using (Html.BeginForm("Add", "ProductData", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Добавить изображение</legend>
+ 
+        <div class="editor-label">Файл изображения</div>
+        <div class="editor-field">
+           <input type="file" name="image" />
+        </div>
+ 
+        <p>
+            <input type="submit" value="Добавить" />
+        </p>
+    </fieldset>
+}
+ 
+<div> @*А куда возвращаться-то?!*@
+    <a href="/ProductData/Add/@Model.ProductId">Вернуться к добавлению товара</a> 
+</div>

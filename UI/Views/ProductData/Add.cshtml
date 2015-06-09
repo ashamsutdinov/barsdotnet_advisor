@@ -12,14 +12,16 @@
             <td width="30%">
                 <table border="0" width="100%" align="center">
                     <tr>
-                        <td><div class="editor-label">Фотография</div> </td>
+                        @*как передать параметр?!*@
+                        <td><input type="button" value="Загрузить" onclick="location.href = '/ProductPhoto/Add';" /></td>
+                        <td><div class="editor-label">Фотографии</div> </td>
                     </tr>
                     <tr>
                         <td align="center" width="100%">
-                            <div class="editor-field">
-                                @*
+                            @*<div class="editor-field">
+                                
                                     Вот здесь надо оставить просто if(Model.PhotosId.Count==0)
-                                *@
+                                
                                 @if ((Model == null) || (Model.PhotosId == null) || (Model.PhotosId.Count == 0))
                                 {
                                     <b>Нет изображения</b>
@@ -32,6 +34,7 @@
                                 <input type="file" name="Image" />
 
                             </div>
+                            *@
                         </td>
                     </tr>
 
