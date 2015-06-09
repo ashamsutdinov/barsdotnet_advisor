@@ -19,14 +19,15 @@
                     }
                     else
                     {
+                        <tr bgcolor="green">
+                            <td>Товар</td>
+                            <td>Категория</td>
+                            <td>Рейтинг</td>
+                            <td>Мин цена</td>
+                        </tr>
                         foreach (ProductModel b in Model)
                         {
-                            <tr>
-                                <td>Товар</td>
-                                <td>Категория</td>
-                                <td>Рейтинг</td>
-                                <td>Мин цена</td>
-                            </tr>
+
                             <tr>
                                 <td><p><a href="/ProductData/Index/@b.Id">@b.Name</a></p></td>
                                 <td><p>@b.Category</p></td>
