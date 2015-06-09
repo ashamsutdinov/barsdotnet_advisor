@@ -46,28 +46,32 @@ namespace UI.Controllers
         }
         public ActionResult Add(int? productid, ProductPhotosModel model, HttpPostedFileBase image)
         {
-            Product pr = _productManager.Get(productid.Value);
-
-            if ((pr== null) || (pr.UserId!=CurrentUser.Id))
+            //а если null?!
+            if (productid == null)
+                return Redirect("/");
+            else
             {
-                if (ModelState.IsValid && image != null)
+                Product pr = _productManager.Get(productid.Value);
+                if ((pr == null) || (pr.UserId != CurrentUser.Id))
                 {
-                    byte[] imageData = null;
-                    model.MimeType = image.ContentType;
-                    model.Photo = new byte[image.ContentLength];
-                    image.InputStream.Read(model.Photo, 0, image.ContentLength);
-                    model.Photo = imageData;
-                    _photoManager.Add(model.Photo, model.MimeType, productid.Value);
+                    if (ModelState.IsValid && image != null)
+                    {
+                        byte[] imageData = null;
+                        model.MimeType = image.ContentType;
+                        model.Photo = new byte[image.ContentLength];
+                        image.InputStream.Read(model.Photo, 0, image.ContentLength);
+                        model.Photo = imageData;
+                        _photoManager.Add(model.Photo, model.MimeType, productid.Value);
 
-                    TempData["message"] = string.Format("фото услуги было сохранено");
-                    return RedirectToAction("Index");
+                        TempData["message"] = string.Format("фото услуги было сохранено");
+                        return RedirectToAction("Index");
+                    }
+                    else
+                        return Redirect("/");
                 }
                 else
-                    return Redirect("/");
+                    return View();
             }
-            else
-              return View();
-
             
         }
     }

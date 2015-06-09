@@ -164,8 +164,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\1place.jpg" />
     <Content Include="Content\Images\fallout.png" />
     <Content Include="Content\Images\blocnot.jpg" />
+    <Content Include="Content\Images\палец_вверх.jpg" />
+    <Content Include="Content\Images\палец_вверх_нажато.png" />
+    <Content Include="Content\Images\палец_вниз.jpg" />
+    <Content Include="Content\Images\палец_вниз_нажато.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\extjs\ext-all-debug-w-comments.js" />
