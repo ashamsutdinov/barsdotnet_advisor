@@ -156,7 +156,7 @@
     </Compile>
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\ProductPhotosModel.cs" />
+    <Compile Include="Models\ProductPhotoModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\RatingModel.cs" />
     <Compile Include="Models\UserModel.cs" />
