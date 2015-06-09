@@ -45,7 +45,7 @@ namespace UI.Controllers
             {
                 Product pr = _productManager.Get((int)id);
 
-                if ((pr == null) || (pr.UserId != CurrentUser.Id))
+                if ((pr == null) || (CurrentUser == null)||(pr.UserId != CurrentUser.Id))
                 {//если нет такого товара, или это не его товар, то выкинуть!
                     return Redirect("/");
                 }
@@ -63,15 +63,19 @@ namespace UI.Controllers
         {            
                 if (ModelState.IsValid && image != null)
                 {
-                    byte[] imageData = null;
+                    /*byte[] imageData = null;
                     using (var binaryReader = new BinaryReader(image.InputStream))
                     {
                         imageData = binaryReader.ReadBytes(image.ContentLength);
                     }
                     model.MimeTypePhoto = image.ContentType;
                     model.Photo = imageData;
-                    //image.InputStream.Read(model.Photo, 0, image.ContentLength);
                     
+                    */
+                    model.MimeTypePhoto = image.ContentType;
+                    model.Photo = new byte[image.ContentLength];
+                    image.InputStream.Read(model.Photo, 0, image.ContentLength);
+
                     _photoManager.Add(model.Photo, model.MimeTypePhoto, model.Id);
                     
                     TempData["message"] = string.Format("фото услуги было сохранено");
