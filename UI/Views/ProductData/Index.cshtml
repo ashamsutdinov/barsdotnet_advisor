@@ -53,28 +53,22 @@
             
     <td width="20%"></td>
     
-
+             <td width="30%">
+        <div >
+            
                 if (ViewBag.IsAuthorized && ViewBag.Login == Model.UserLogin)
                 {
-                <td width="30%">
-        <table border="0" width="100%" align="center">
-            <tr>
-                <td>
+               
                     <a href="/ProductData/Edit/@Model.Id">Редактировать товар</a>
-                </td>
-            </tr>
-            </table></td>
+                
                 }
                 else
                 {
                 
-            <tr>
-                <td> <img src="/Content/Images/палец_вверх.jpg" width="70" height="70" onclick='this.src = "/Content/Images/палец_вверх_нажато.png"' /></td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="/Content/Images/палец_вниз.jpg" width="70" height="70" onclick='this.src = "/Content/Images/палец_вниз_нажато.png"' /></td>
-            </tr>
+             <img src="/Content/Images/палец_вверх.jpg" width="70" height="70" onclick='this.src = "/Content/Images/палец_вверх_нажато.png"' />
+            
+                    <img src="/Content/Images/палец_вниз.jpg" width="70" height="70" onclick='this.src = "/Content/Images/палец_вниз_нажато.png"' />
+            
 
                 @*//поле для оставления оценок
             //!!!!! хочу здесь звездочки!!! Алсу, ты умеешь?
@@ -89,24 +83,22 @@
                 @*//поле для комментариев*@
                 if (ViewBag.IsAuthorized)
                 {
-            <tr>
-                <td>
+            
                     @Html.TextArea("Comment");
                     <p><input type="submit" value="Оставить отзыв" /></p>
-                </td>
-            </tr>
+                
                 }
                 else
                 {
-               <tr><td> @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")</td></tr>
+                @Html.Display("К сожалению, только авторизированные пользователи могут оставлять комментарии")
                 }
                 {
-            <tr><td><a href="/ProductData/Comments/@Model.Id">Все отзывы на товар</a></td></tr>
+           <a href="/ProductData/Comments/@Model.Id">Все отзывы на товар</a>
                 }
                 @*/а вот тут должны отображаться уже оставленные комментарии
             //Но их пока нет
             //оставь для них место, ладно?*@
-        </table>
+        </div>
 </td>
         }
 </table>
