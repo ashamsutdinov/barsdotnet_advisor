@@ -1,4 +1,5 @@
-﻿@model UI.Models.ProductModel
+﻿@using System.Web.Mvc
+@model UI.Models.ProductModel
 @{
     ViewBag.Title = "Добавление товара";
 }
@@ -33,8 +34,9 @@
                         <td>@Html.TextBox("MaxValue")</td>
                     </tr>
                     <tr>
-                        <td align="center" width="50%"><b>Введите название категории </b></td>
-                        <td>@Html.TextBox("Category")</td>
+                        <td align="center" width="50%"><b>Выберите категорию </b></td>
+                        @*<td>@Html.TextBox("Category")</td>*@
+                        <td>@Html.DropDownList("Category",new SelectList(ViewBag.Categories))</td>
                         <td>@Html.ValidationMessage("Category")</td>
                         
                     </tr>
@@ -49,7 +51,7 @@
                        <td align="center" width="100%">
                           <br />  <a>*Добавить фото к предложению можно при редактировании </a>
 
-                       </td>
+                        </td>
                     </tr>
                     
                 </table>

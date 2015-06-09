@@ -36,5 +36,13 @@ namespace Advisor.Data
                 return da.Save(category);
             }
         }
+
+        public IEnumerable<string> GetAllCategories()
+        {
+            using (var da=new CategoryDa())
+            {
+                return da.GetAllCategories();
+            }
+        }
     }
 }

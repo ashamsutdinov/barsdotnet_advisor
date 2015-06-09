@@ -28,7 +28,8 @@ namespace UI.Controllers
 
         private readonly IProductPhotoManager _photoManager
             = Services.Factory.Get<IProductPhotoManager>();
-
+        private readonly ICategoryManager _categoryManager
+        = Services.Factory.Get<ICategoryManager>();
 
         //главная страница продукта
         public ActionResult Index(int? id)
@@ -107,6 +108,7 @@ namespace UI.Controllers
                 //поэтому просто выкинем человека на главную Х)
                 return Redirect("/");
             }
+            ViewBag.Categories = _categoryManager.GetAllCategories();
             return View();
         }
 
@@ -128,13 +130,22 @@ namespace UI.Controllers
                 }*/
                 //проверка поскольку категория может оказаться не той.
                 if (p!=null) 
+                {
                     TempData["message"] = string.Format("{0} услуга была сохранена", p.Name);
+                    return Redirect("/");
+                }
+                //странно, что если ты не указал категорию верно, тебя сразу выкидывают на главню
                 else
-                    TempData["message"] = string.Format("Сохранение невозможно, укажите имеющуюся категорию");
-                return Redirect("/");
+                    //TempData["message"] = string.Format("Сохранение невозможно, укажите имеющуюся категорию");
+                {
+                    ModelState.AddModelError("Categories", "Введенной вами категории не существует");
+                    ViewBag.Categories = _categoryManager.GetAllCategories();
+                    return View();
+                }
             }
             else
             {//что-то пошло не так
+                ViewBag.Categories = _categoryManager.GetAllCategories();
                 return View();
             }
         }
