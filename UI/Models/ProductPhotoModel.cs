@@ -5,7 +5,7 @@ using System.Web;
 
 namespace UI.Models
 {
-    public class ProductPhotosModel
+    public class ProductPhotoModel
     {
         public int Id { get; set; }
 
@@ -13,7 +13,7 @@ namespace UI.Models
 
         public int ProductId { get; set; }
 
-        public string MimeType { get; set; }
+        public string MimeTypePhoto { get; set; }
 
     }
 }

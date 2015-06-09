@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Advisor.Dal.Domain
 {
     public class ProductPhoto
@@ -12,7 +13,7 @@ namespace Advisor.Dal.Domain
 
         public virtual byte[] Photo { get; set; }
 
-        public virtual string MimeType { get; set; }
+        public virtual string MimeTypePhoto { get; set; }
 
         public virtual int ProductId { get; set; }
         

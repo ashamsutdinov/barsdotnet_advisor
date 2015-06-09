@@ -11,7 +11,7 @@ namespace Advisor.Data
     {
         IEnumerable<ProductPhoto> GetPhotos(int productId);
         //взять фотографии
-        ProductPhoto Add( byte[] photo, string mimetype, int productId);
+        ProductPhoto Add( byte[] photo, string mimetypephoto, int productId);
         ProductPhoto Get(int photoId);
     }
 }

@@ -13,7 +13,7 @@ namespace Advisor.Dal.Mapping
             Id(u => u.Id, m => m.Generator(Generators.Identity));
             Property(u => u.Photo);
             Property(u => u.ProductId);
-            Property(u => u.MimeType);
+            Property(u => u.MimeTypePhoto);
 
             //--
             //ManyToOne(x => x.Product, map => map.Column("ProductId"));
